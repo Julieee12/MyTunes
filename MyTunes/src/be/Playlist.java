@@ -8,17 +8,29 @@ import java.util.List;
 public class Playlist {
 
     private List<Song> allsongs;
+    private String name;
+    private int id;
 
 
     public Playlist(){
         this.allsongs=new ArrayList<>();
-
+        this.id=id;
+        this.name=name;
+    }
+    public List<Song> getAllsongs(){
+        return allsongs;
     }
     public void addSong(Song song){
         allsongs.add(song);
     }
     public void removeSong(Song song){
         allsongs.remove(song);
+    }
+    public String getName(){
+        return name;
+    }
+    public int getId(){
+        return id;
     }
 
 

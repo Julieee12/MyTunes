@@ -34,7 +34,7 @@ public class Song {
         this.songtitle = songtitle;
     }
 
-    public void setDuration(int duration) {
+    public void setDuration(double duration) {
         this.duration = duration;
     }
 
