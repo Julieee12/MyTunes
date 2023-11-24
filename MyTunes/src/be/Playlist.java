@@ -20,6 +20,9 @@ public class Playlist {
     public List<Song> getAllsongs(){
         return allsongs;
     }
+    public void setName(String name) {
+        this.name = name;
+    }
     public void addSong(Song song){
         allsongs.add(song);
     }

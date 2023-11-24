@@ -5,6 +5,7 @@ public class Song {
     private String songtitle;
     private double duration;
     private String album;
+    private int currentSong;
 
 
     public Song(String artist, String songtitle, int duration, String album) {
