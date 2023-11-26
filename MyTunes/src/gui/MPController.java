@@ -1,19 +1,20 @@
 package gui;
 
 import javafx.event.ActionEvent;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class MPController {
 
     public Button prevsong;
     public Button nextsong;
     public Button newsong;
-    public ListView songlist;
     public Button playPause;
-    public ListView allPlaylists;
     public Label currentlyPlayingSong;
     public ListView songsInPlaylist;
     public TextField searchInput;
@@ -28,6 +29,8 @@ public class MPController {
     public Button moveDown;
     public Button editPlaylist;
     public Button editSong;
+    public TableView playlistTable;
+    public TableView songTable;
 
     private int currentSong;
 
@@ -54,7 +57,14 @@ public class MPController {
     public void platNextSong(ActionEvent actionEvent) {
     }
 
-    public void addNewSong(ActionEvent actionEvent) {
+    public void addNewSong(ActionEvent actionEvent) throws IOException {
+
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getResource("NewSong.fxml"));
+        Parent root = loader.load();
+        Stage primaryStage = new Stage();
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
     }
 
     public void addNewPlaylist(ActionEvent actionEvent) {
