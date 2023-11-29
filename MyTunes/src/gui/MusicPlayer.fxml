@@ -47,8 +47,10 @@
       <Label text="Label" />
       <TableView fx:id="songTable" layoutX="524.0" layoutY="168.0" prefHeight="376.0" prefWidth="347.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
+          <TableColumn fx:id="titleColumn" prefWidth="107.3333740234375" text="Title" />
+          <TableColumn fx:id="artistColumn" prefWidth="77.99993896484375" text="Artist" />
+            <TableColumn fx:id="categoryColumn" prefWidth="92.0" text="Category" />
+            <TableColumn fx:id="timeColumn" prefWidth="70.0" text="Time" />
         </columns>
       </TableView>
       <TableView fx:id="playlistTable" layoutX="20.0" layoutY="168.0" prefHeight="376.0" prefWidth="200.0">

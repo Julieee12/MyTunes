@@ -1,15 +1,24 @@
 package gui;
 
+import be.Song;
+import bll.logic;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class MPController {
+public class MPController implements Initializable {
+
+    private MPModel model;
 
     public Button prevsong;
     public Button nextsong;
@@ -30,9 +39,28 @@ public class MPController {
     public Button editPlaylist;
     public Button editSong;
     public TableView playlistTable;
-    public TableView songTable;
-
+    public TableView <Song> songTable;
+    public TableColumn <Song, String> titleColumn;
+    public TableColumn <Song, String> artistColumn;
+    public TableColumn <Song, String> categoryColumn;
+    public TableColumn <Song, Double> timeColumn;
     private int currentSong;
+
+
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        this.model = MPModel.getInstance();
+        ObservableList <Song> data = model.returnSongList();
+        titleColumn.setCellValueFactory(new PropertyValueFactory<Song,String>("songTitle")); //connects data with table view
+        artistColumn.setCellValueFactory(new PropertyValueFactory<Song,String>("artist"));
+        categoryColumn.setCellValueFactory(new PropertyValueFactory<Song,String>("category"));
+        timeColumn.setCellValueFactory(new PropertyValueFactory<Song, Double>("duration"));
+        songTable.setItems(data);
+
+
+    }
+
 
     public void pause(){
 
@@ -59,13 +87,23 @@ public class MPController {
 
     public void addNewSong(ActionEvent actionEvent) throws IOException {
 
-        FXMLLoader loader = new FXMLLoader(
-                getClass().getResource("NewSong.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("NewSong.fxml"));
         Parent root = loader.load();
+
+        NewSongController newSongController = loader.getController();
+        newSongController.setMPController(this);
+
         Stage primaryStage = new Stage();
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
+
+    public void updateTable() {
+        ObservableList<Song> data = model.returnSongList();
+        // Update TableView with the latest data...
+    }
+
+
 
     public void addNewPlaylist(ActionEvent actionEvent) {
     }
@@ -99,4 +137,6 @@ public class MPController {
 
     public void editExistingSong(ActionEvent actionEvent) {
     }
+
+
 }

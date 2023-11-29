@@ -4,11 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9417ade9-2d98-480b-b2b5-2fdc0dbdce5d" name="Changes" comment="" />
+    <list default="true" id="9417ade9-2d98-480b-b2b5-2fdc0dbdce5d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyTunes/src/bll/logic.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/bll/logic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyTunes/src/gui/MPController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/gui/MPController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyTunes/src/gui/MPModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/gui/MPModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyTunes/src/gui/MusicPlayer.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/gui/MusicPlayer.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyTunes/src/gui/NewSongController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/gui/NewSongController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/gui/MusicPlayer.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/gui/MusicPlayer.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -18,6 +29,7 @@
   &quot;associatedIndex&quot;: 0
 }</component>
   <component name="ProjectId" id="2YiVJs7VntUdZo4x4qv6I0XCI5n" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -26,8 +38,10 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/andre/Desktop/SDEFirstS/WordSearch2",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/andre/Desktop/IntelliJ1S/Assignment4",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -45,6 +59,7 @@
       <updated>1701008320453</updated>
       <workItem from="1701008323663" duration="4000" />
       <workItem from="1701008335866" duration="11665000" />
+      <workItem from="1701039251570" duration="30166000" />
     </task>
     <servers />
   </component>
