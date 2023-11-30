@@ -6,7 +6,7 @@ import javafx.collections.ObservableList;
 
 public class logic {
 
-    ObservableList<Song> songList = FXCollections.observableArrayList();
+    private ObservableList<Song> songList = FXCollections.observableArrayList();
 
     //ArrayList<Song> songList = new ArrayList<Song>();
 

@@ -5,13 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9417ade9-2d98-480b-b2b5-2fdc0dbdce5d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/microsoft_sqlserver_mssql_jdbc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyTunes-main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes-main.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyTunes/src/bll/logic.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/bll/logic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyTunes/src/gui/MPController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/gui/MPController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyTunes/src/gui/MPModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/gui/MPModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyTunes/src/gui/MusicPlayer.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/gui/MusicPlayer.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyTunes/src/dal/databaseConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/dal/databaseConnector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyTunes/src/gui/NewSong.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/gui/NewSong.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyTunes/src/gui/NewSongController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/gui/NewSongController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/gui/MusicPlayer.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/gui/MusicPlayer.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/bll/logic.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/bll/logic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/dal/databaseConnector.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/dal/databaseConnector.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/gui/NewSong.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/gui/NewSong.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/gui/NewSongController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/gui/NewSongController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,21 +38,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/andre/Desktop/IntelliJ1S/Assignment4",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenDatabaseViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/andre/Desktop/SDEFirstS/MyTunes&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -59,7 +71,8 @@
       <updated>1701008320453</updated>
       <workItem from="1701008323663" duration="4000" />
       <workItem from="1701008335866" duration="11665000" />
-      <workItem from="1701039251570" duration="30166000" />
+      <workItem from="1701039251570" duration="35616000" />
+      <workItem from="1701357129744" duration="370000" />
     </task>
     <servers />
   </component>

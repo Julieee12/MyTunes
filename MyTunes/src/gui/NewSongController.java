@@ -9,8 +9,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -45,10 +47,17 @@ public class NewSongController implements Initializable {
     }
 
 
+    public void chooseFile(ActionEvent actionEvent) {
+        FileChooser fileChooser = new FileChooser(); //creating instance of fileChooser
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Audio Files", "*.mp3", "*.wav"));
+        File selectedFile = fileChooser.showOpenDialog(stage); //shows open dialog
 
-    public void choose() {
-
+        if (selectedFile != null) { //if file is selected add it to textField
+            fileField.setText(selectedFile.getAbsolutePath());
+        }
     }
+
+
 
     public void save() {
 
@@ -76,4 +85,6 @@ public class NewSongController implements Initializable {
 
 
     }
+
+
 }
