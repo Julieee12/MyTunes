@@ -7,14 +7,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<TitledPane alignment="CENTER" animated="false" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="158.0" prefWidth="274.0" text="New/Edit Playlist" textAlignment="CENTER" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/20.0.1" fx:controller="gui.NewPLController">
+<TitledPane alignment="CENTER" animated="false" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="158.0" prefWidth="274.0" text="New/Edit Playlist" textAlignment="CENTER" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.NewPLController">
   <content>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="177.0" prefWidth="340.0">
          <children>
             <Label layoutX="28.0" layoutY="26.0" prefHeight="32.0" prefWidth="45.0" text="Name:" />
             <PasswordField fx:id="nameLabel" layoutX="73.0" layoutY="29.0" prefHeight="27.0" prefWidth="137.0" />
-            <Button fx:id="cancelChanges" layoutX="130.0" layoutY="91.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="60.0" text="Cancel" />
-            <Button fx:id="saveChanges" layoutX="203.0" layoutY="91.0" mnemonicParsing="false" text="Save" />
+            <Button fx:id="cancelChanges" layoutX="130.0" layoutY="91.0" mnemonicParsing="false" onAction="#cancelPlaylist" prefHeight="27.0" prefWidth="60.0" text="Cancel" />
+            <Button fx:id="saveChanges" layoutX="203.0" layoutY="91.0" mnemonicParsing="false" onAction="#savePlaylist" text="Save" />
          </children></AnchorPane>
   </content>
    <font>

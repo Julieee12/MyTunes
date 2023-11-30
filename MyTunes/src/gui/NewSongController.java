@@ -63,13 +63,6 @@ public class NewSongController implements Initializable {
 
     }
 
-    public void cancel() {
-
-    }
-
-    public void more() {
-
-    }
 
     public void saveSong(ActionEvent actionEvent) { //once save is clicked input will be saved also for the song
         String title = titlefield.getText();
@@ -87,4 +80,8 @@ public class NewSongController implements Initializable {
     }
 
 
+    public void cancelSong(ActionEvent event) {
+        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        stage.close();
+    }
 }

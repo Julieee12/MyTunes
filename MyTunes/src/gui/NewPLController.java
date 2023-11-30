@@ -1,7 +1,10 @@
 package gui;
 
+import javafx.event.ActionEvent;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
+import javafx.stage.Stage;
 
 public class NewPLController {
 
@@ -16,4 +19,11 @@ public class NewPLController {
 
     }
 
+    public void cancelPlaylist(ActionEvent event) {
+        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        stage.close();
+    }
+
+    public void savePlaylist(ActionEvent event) {
+    }
 }

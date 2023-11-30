@@ -105,7 +105,12 @@ public class MPController implements Initializable {
 
 
 
-    public void addNewPlaylist(ActionEvent actionEvent) {
+    public void addNewPlaylist(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("NewPlaylist.fxml"));
+        Parent root = loader.load();
+        Stage primaryStage = new Stage();
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
     }
 
     public void deletePlaylist(ActionEvent actionEvent) {
