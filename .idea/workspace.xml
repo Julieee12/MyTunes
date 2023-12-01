@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9417ade9-2d98-480b-b2b5-2fdc0dbdce5d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/microsoft_sqlserver_mssql_jdbc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyTunes-main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes-main.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyTunes/src/bll/logic.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/bll/logic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyTunes/src/dal/databaseConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/dal/databaseConnector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyTunes/src/gui/NewSong.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/gui/NewSong.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyTunes/src/gui/NewSongController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/gui/NewSongController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/bll/logic.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/bll/logic.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/dal/databaseConnector.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/dal/databaseConnector.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/gui/NewSong.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/gui/NewSong.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/gui/NewSongController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/gui/NewSongController.class" afterDir="false" />
-    </list>
+    <list default="true" id="9417ade9-2d98-480b-b2b5-2fdc0dbdce5d" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,7 +38,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/andre/Desktop/SDEFirstS/MyTunes&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/July/Documents/MyTunes&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -73,6 +61,9 @@
       <workItem from="1701008335866" duration="11665000" />
       <workItem from="1701039251570" duration="35616000" />
       <workItem from="1701357129744" duration="370000" />
+      <workItem from="1701369052858" duration="5240000" />
+      <workItem from="1701376223541" duration="11000" />
+      <workItem from="1701420681289" duration="407000" />
     </task>
     <servers />
   </component>

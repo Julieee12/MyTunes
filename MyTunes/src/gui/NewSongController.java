@@ -9,11 +9,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextInputDialog;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.File;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class NewSongController implements Initializable {
@@ -40,10 +42,12 @@ public class NewSongController implements Initializable {
         this.model = MPModel.getInstance();
         this.stage = new Stage();
 
+        //other initialization code
+        more.setOnAction(event -> addNewCategory());
+
     }
 
-    public void setMPController(MPController mpController) {
-        this.mpController = mpController;
+    public void setMPController(MPController mpController) {this.mpController = mpController;
     }
 
 
@@ -58,7 +62,6 @@ public class NewSongController implements Initializable {
     }
 
 
-
     public void save() {
 
     }
@@ -68,23 +71,41 @@ public class NewSongController implements Initializable {
     }
 
     public void more() {
+        addNewCategory();
 
     }
 
-    public void saveSong(ActionEvent actionEvent) { //once save is clicked input will be saved also for the song
-        String title = titlefield.getText();
-        String artist = artistfield.getText();
-        String category = categoryBox.getValue();
-        Double time = Double.parseDouble(timeField.getText());
-        String path = fileField.getText();
-        model.createSong(title, artist, category, time, path);
-        mpController.updateTable(); // Notify MPController to update TableView
+    private void addNewCategory() {
+        //Adds the new window where you set the category
+        TextInputDialog dialog = new TextInputDialog();
+        dialog.setTitle("Add New Category");
+        dialog.setHeaderText("Enter a new category:");
+        dialog.setContentText("Category:");
 
-        Stage stage = (Stage)((Node) actionEvent.getSource()).getScene().getWindow();
-        stage.close();
-
-
+        // Waits for the user to type something
+        Optional<String> result = dialog.showAndWait();
+        result.ifPresent(newCategory -> {
+            // Add the new category to the list
+            categoryBox.getItems().add(newCategory);
+            categoryBox.setValue(newCategory);
+        });
     }
 
+
+        public void saveSong (ActionEvent actionEvent){ //once save is clicked input will be saved also for the song
+            String title = titlefield.getText();
+            String artist = artistfield.getText();
+            String category = categoryBox.getValue();
+            Double time = Double.parseDouble(timeField.getText());
+            String path = fileField.getText();
+            model.createSong(title, artist, category, time, path);
+            mpController.updateTable(); // Notify MPController to update TableView
+
+            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            stage.close();
+
+
+        }
 
 }
+
