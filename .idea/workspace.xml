@@ -5,17 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9417ade9-2d98-480b-b2b5-2fdc0dbdce5d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/microsoft_sqlserver_mssql_jdbc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyTunes-main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes-main.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyTunes/src/bll/logic.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/bll/logic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyTunes/src/dal/databaseConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/dal/databaseConnector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyTunes/src/gui/NewSong.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/gui/NewSong.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyTunes/src/gui/NewSongController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/gui/NewSongController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/bll/logic.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/bll/logic.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/dal/databaseConnector.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/dal/databaseConnector.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/gui/NewSong.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/gui/NewSong.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/gui/NewSongController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/gui/NewSongController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
