@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -114,15 +115,24 @@ public class MPController implements Initializable {
     }
 
     public void deletePlaylist(ActionEvent actionEvent) {
+
     }
 
     public void deleteSongInPlaylist(ActionEvent actionEvent) {
     }
 
     public void deleteSongs(ActionEvent actionEvent) {
+        ObservableList<Song> selectedSongs = songTable.getSelectionModel().getSelectedItems();
+        if (!selectedSongs.isEmpty()) {
+            logic.deleteSelectedSongs(selectedSongs);
+            updateTable();
+        }
     }
 
     public void closeApplication(ActionEvent actionEvent) {
+        updateTable();
+        Stage stage = (Stage)((Node) actionEvent.getSource()).getScene().getWindow();
+        stage.close();
     }
 
     public void moveSongsToPlaylists(ActionEvent actionEvent) {

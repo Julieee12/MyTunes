@@ -47,6 +47,6 @@
             <Button fx:id="more" layoutX="271.0" layoutY="136.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="72.0" text="More..." />
          </children>
       </AnchorPane>
-      <Text layoutX="212.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New/Edit Song" />
+      <Text layoutX="207.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New/Edit Song" />
    </children>
 </AnchorPane>
