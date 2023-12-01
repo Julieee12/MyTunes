@@ -66,6 +66,7 @@ public class NewSongController implements Initializable {
 
     }
 
+
     public void cancel() {
 
     }
@@ -74,6 +75,7 @@ public class NewSongController implements Initializable {
         addNewCategory();
 
     }
+
 
     private void addNewCategory() {
         //Adds the new window where you set the category
@@ -92,6 +94,7 @@ public class NewSongController implements Initializable {
     }
 
 
+
         public void saveSong (ActionEvent actionEvent){ //once save is clicked input will be saved also for the song
             String title = titlefield.getText();
             String artist = artistfield.getText();
@@ -107,5 +110,10 @@ public class NewSongController implements Initializable {
 
         }
 
+
+    public void cancelSong(ActionEvent event) {
+        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        stage.close();
+    }
 }
 
