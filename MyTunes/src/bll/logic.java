@@ -6,7 +6,7 @@ import javafx.collections.ObservableList;
 
 public class logic {
 
-    private ObservableList<Song> songList = FXCollections.observableArrayList();
+    private static ObservableList<Song> songList = FXCollections.observableArrayList();
 
     //ArrayList<Song> songList = new ArrayList<Song>();
 
@@ -17,9 +17,11 @@ public class logic {
     }
 
     public ObservableList<Song> returnSongList(){
-        Song testSong = new Song("Test","as",22,"Pop","abx");
-        songList.add(testSong);
         return songList;
+    }
+
+    public static void deleteSelectedSongs(ObservableList<Song> songsToDelete){
+        songList.removeAll(songsToDelete);
     }
 
 
