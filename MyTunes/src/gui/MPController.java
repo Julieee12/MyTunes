@@ -1,7 +1,7 @@
 package gui;
 
 import be.Song;
-import bll.logic;
+import bll.SongManager;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class MPController implements Initializable {
@@ -52,7 +53,12 @@ public class MPController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         this.model = MPModel.getInstance();
-        ObservableList <Song> data = model.returnSongList();
+        ObservableList <Song> data = null;
+        try {
+            data = model.returnSongList();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         titleColumn.setCellValueFactory(new PropertyValueFactory<Song,String>("songTitle")); //connects data with table view
         artistColumn.setCellValueFactory(new PropertyValueFactory<Song,String>("artist"));
         categoryColumn.setCellValueFactory(new PropertyValueFactory<Song,String>("category"));
@@ -99,7 +105,7 @@ public class MPController implements Initializable {
         primaryStage.show();
     }
 
-    public void updateTable() {
+    public void updateTable() throws SQLException {
         ObservableList<Song> data = model.returnSongList();
         // Update TableView with the latest data...
     }
@@ -121,15 +127,15 @@ public class MPController implements Initializable {
     public void deleteSongInPlaylist(ActionEvent actionEvent) {
     }
 
-    public void deleteSongs(ActionEvent actionEvent) {
+    public void deleteSongs(ActionEvent actionEvent) throws SQLException {
         ObservableList<Song> selectedSongs = songTable.getSelectionModel().getSelectedItems();
         if (!selectedSongs.isEmpty()) {
-            logic.deleteSelectedSongs(selectedSongs);
+            SongManager.deleteSelectedSongs(selectedSongs);
             updateTable();
         }
     }
 
-    public void closeApplication(ActionEvent actionEvent) {
+    public void closeApplication(ActionEvent actionEvent) throws SQLException {
         updateTable();
         Stage stage = (Stage)((Node) actionEvent.getSource()).getScene().getWindow();
         stage.close();

@@ -2,18 +2,18 @@ package gui;
 
 
 import be.Song;
-import bll.logic;
+import bll.SongManager;
 import javafx.collections.ObservableList;
 
-import java.util.Observable;
+import java.sql.SQLException;
 
 public class MPModel {
     private final static MPModel instance = new MPModel(); //ensures that by using Singelton all controllers use the same model
-    private logic playerLogic;
+    private SongManager playerLogic;
     private MPController observerController;
 
     public MPModel() {
-        this.playerLogic = new logic();
+        this.playerLogic = new SongManager();
     }
 
     public static MPModel getInstance(){
@@ -27,9 +27,14 @@ public class MPModel {
 
     }
 
-    public ObservableList<Song> returnSongList(){
+    public ObservableList<Song> returnSongList() throws SQLException {
         return playerLogic.returnSongList();
 
     }
+
+    public void loadSongs() throws SQLException {
+        playerLogic.loadSongs();
+    }
+
 
 }

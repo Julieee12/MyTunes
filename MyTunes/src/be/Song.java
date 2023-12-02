@@ -7,9 +7,10 @@ public class Song {
     private String category;
     private int currentSong;
     private String filePath;
+    private int id ;
 
 
-
+// two constructors were created because one is for database where id is created and one is for gui where id is not needed
 
     public Song(String artist, String songtitle, double duration, String category, String filePath) {
         this.artist = artist;
@@ -18,6 +19,15 @@ public class Song {
         this.category =category;
         this.filePath = filePath;
     }
+    public Song(String artist, String songtitle, double duration, String category, String filePath, int id) {
+        this.artist = artist;
+        this.songTitle = songtitle;
+        this.duration = duration;
+        this.category =category;
+        this.filePath = filePath;
+        this.id = id;
+    }
+
     public String getFilePath(){
         return filePath;
     }

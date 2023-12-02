@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -95,7 +96,7 @@ public class NewSongController implements Initializable {
 
 
 
-        public void saveSong (ActionEvent actionEvent){ //once save is clicked input will be saved also for the song
+        public void saveSong (ActionEvent actionEvent) throws SQLException { //once save is clicked input will be saved also for the song
             String title = titlefield.getText();
             String artist = artistfield.getText();
             String category = categoryBox.getValue();
