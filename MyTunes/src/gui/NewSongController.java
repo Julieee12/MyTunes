@@ -62,16 +62,6 @@ public class NewSongController implements Initializable {
         }
     }
 
-
-    public void save() {
-
-    }
-
-
-    public void cancel() {
-
-    }
-
     public void more() {
         addNewCategory();
 

@@ -3,21 +3,19 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 
-<TitledPane alignment="CENTER" animated="false" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="158.0" prefWidth="274.0" text="New/Edit Playlist" textAlignment="CENTER" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.NewPLController">
-  <content>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="177.0" prefWidth="340.0">
+
+<AnchorPane xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.NewPLController">
+   <children>
+    <AnchorPane layoutX="1.0" minHeight="0.0" minWidth="0.0" prefHeight="177.0" prefWidth="265.0">
          <children>
-            <Label layoutX="28.0" layoutY="26.0" prefHeight="32.0" prefWidth="45.0" text="Name:" />
-            <PasswordField fx:id="nameLabel" layoutX="73.0" layoutY="29.0" prefHeight="27.0" prefWidth="137.0" />
-            <Button fx:id="cancelChanges" layoutX="130.0" layoutY="91.0" mnemonicParsing="false" onAction="#cancelPlaylist" prefHeight="27.0" prefWidth="60.0" text="Cancel" />
-            <Button fx:id="saveChanges" layoutX="203.0" layoutY="91.0" mnemonicParsing="false" onAction="#savePlaylist" text="Save" />
-         </children></AnchorPane>
-  </content>
-   <font>
-      <Font size="14.0" />
-   </font>
-</TitledPane>
+            <Label layoutX="21.0" layoutY="58.0" prefHeight="32.0" prefWidth="45.0" text="Name:" />
+            <PasswordField fx:id="nameLabel" layoutX="66.0" layoutY="60.0" prefHeight="27.0" prefWidth="137.0" />
+            <Button fx:id="cancelChanges" layoutX="54.0" layoutY="112.0" mnemonicParsing="false" onAction="#cancelPlaylist" prefHeight="27.0" prefWidth="60.0" text="Cancel" />
+            <Button fx:id="saveChanges" layoutX="157.0" layoutY="112.0" mnemonicParsing="false" onAction="#savePlaylist" text="Save" />
+            <Label layoutX="87.0" layoutY="14.0" text="New/Edit Playlist" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
