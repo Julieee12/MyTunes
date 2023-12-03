@@ -3,6 +3,8 @@ package gui;
 import be.Song;
 import bll.SongManager;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -18,6 +20,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.function.Predicate;
 
 public class MPController implements Initializable {
 
@@ -66,8 +69,41 @@ public class MPController implements Initializable {
         timeColumn.setCellValueFactory(new PropertyValueFactory<Song, Double>("duration"));
         songTable.setItems(data);
 
+        try {
+            searchSong();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
 
     }
+    public void searchSong() throws SQLException {
+        FilteredList<Song> filteredData = new FilteredList<>(model.returnSongList(), e -> true);
+
+        searchInput.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(song -> {
+                if (newValue == null || newValue.isEmpty()) {
+                    return true; // Show all songs if the search field is empty
+                }
+
+                // Customize the conditions based on your search criteria
+                String lowerCaseFilter = newValue.toLowerCase();
+                return song.getSongTitle().toLowerCase().contains(lowerCaseFilter)
+                        || song.getArtist().toLowerCase().contains(lowerCaseFilter)
+                        || song.getCategory().toLowerCase().contains(lowerCaseFilter);
+            });
+        });
+
+        // Wrap the FilteredList in a SortedList
+        SortedList<Song> sortedData = new SortedList<>(filteredData);
+
+        // Bind the SortedList comparator to the TableView comparator
+        sortedData.comparatorProperty().bind(songTable.comparatorProperty());
+
+        // Add sorted (and filtered) data to the table
+        songTable.setItems(sortedData);
+    }
+
 
 
     public void pause(){
@@ -155,8 +191,7 @@ public class MPController implements Initializable {
     public void moveSongsToPlaylists(ActionEvent actionEvent) {
     }
 
-    public void searchSong(ActionEvent actionEvent) {
-    }
+
 
     public void moveSongsUp(ActionEvent actionEvent) {
     }

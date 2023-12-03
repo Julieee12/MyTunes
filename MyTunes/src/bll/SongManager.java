@@ -21,7 +21,7 @@ public class SongManager {
     public void createSong(String title, String artist, String category, Double time, String path){
         Song newSong = new Song(artist, title, time, category, path); // new object
         songList.add(newSong);
-        songDAO.createSong(newSong);
+        songDAO.createSong(newSong); //creates a song in database as well
     }
 
     public ObservableList<Song> returnSongList() throws SQLException {
@@ -29,7 +29,7 @@ public class SongManager {
         return songList;
     }
 
-    public static void deleteSelectedSongs(ObservableList<Song> songsToDelete){
+    public void deleteSelectedSongs(ObservableList<Song> songsToDelete){
         songList.removeAll(songsToDelete);
     }
 

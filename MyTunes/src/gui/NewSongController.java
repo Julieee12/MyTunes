@@ -95,7 +95,7 @@ public class NewSongController implements Initializable {
             model.createSong(title, artist, category, time, path);
             mpController.updateTable(); // Notify MPController to update TableView
 
-            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow(); //closes the fxml
             stage.close();
 
 

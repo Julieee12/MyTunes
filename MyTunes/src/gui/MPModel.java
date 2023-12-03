@@ -36,9 +36,7 @@ public class MPModel {
 
     }
 
-    public void loadSongs() throws SQLException {
-        playerLogic.loadSongs();
-    }
+
 
 
 }
