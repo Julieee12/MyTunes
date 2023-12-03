@@ -5,17 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9417ade9-2d98-480b-b2b5-2fdc0dbdce5d" name="Changes" comment="Deletion functionality within database.">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyTunes/src/be/Song.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/be/Song.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyTunes/src/bll/SongManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/bll/SongManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyTunes/src/dal/ISongDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/dal/ISongDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyTunes/src/dal/SongDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/dal/SongDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyTunes/src/gui/MPController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/gui/MPController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyTunes/src/gui/MPModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/gui/MPModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/be/Song.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/be/Song.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/bll/SongManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/bll/SongManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/dal/ISongDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/dal/ISongDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/dal/SongDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/dal/SongDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/gui/MPModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/gui/MPModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyTunes/src/gui/NewSongController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/gui/NewSongController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,14 +62,15 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/andre/Desktop/MovieRecommendationSystem-master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Iulia/Documents/GitHub/MyTunes&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -88,6 +87,8 @@
       <workItem from="1701039251570" duration="35616000" />
       <workItem from="1701357129744" duration="370000" />
       <workItem from="1701372489841" duration="5623000" />
+      <workItem from="1701631443655" duration="399000" />
+      <workItem from="1701633286015" duration="1712000" />
     </task>
     <task id="LOCAL-00001" summary="Cancel button functionality and addNewPlaylist.">
       <option name="closed" value="true" />

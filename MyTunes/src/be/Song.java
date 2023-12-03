@@ -70,4 +70,8 @@ public class Song {
     public void setCategory(String category) {
         this.category = category;
     }
+
+    public String getPath() {
+        return filePath;
+    }
 }
