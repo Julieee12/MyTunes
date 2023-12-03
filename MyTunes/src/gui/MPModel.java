@@ -26,7 +26,7 @@ public class MPModel {
 
 
     }
-    public void deleteSong(ObservableList<Song> songsToDelete){
+    public void deleteSong(ObservableList<Song> songsToDelete) throws SQLException {
         playerLogic.deleteSelectedSongs(songsToDelete);
     }
 

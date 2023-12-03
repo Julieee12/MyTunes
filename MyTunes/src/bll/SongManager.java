@@ -29,8 +29,8 @@ public class SongManager {
         return songList;
     }
 
-    public void deleteSelectedSongs(ObservableList<Song> songsToDelete){
-        songList.removeAll(songsToDelete);
+    public void deleteSelectedSongs(ObservableList<Song> songsToDelete) throws SQLException {
+        songDAO.deleteSongs(songsToDelete);
     }
 
     public void loadSongs() throws SQLException {

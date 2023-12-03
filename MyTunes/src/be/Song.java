@@ -47,6 +47,9 @@ public class Song {
     public double getDuration() {
         return duration;
     }
+    public int getId(){
+        return id;
+    }
 
     public void setArtist(String artist) {
         this.artist = artist;

@@ -2,6 +2,7 @@ package dal;
 
 import be.Song;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
+import javafx.collections.ObservableList;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -30,8 +31,29 @@ public class SongDAO implements ISongDAO {
 
     @Override
     public Song getSong(int id) {
-        return null;
+
+        try (Connection con = dbConnection.getConnection()) {
+            String sql = "SELECT * FROM Songs WHERE ID=?";
+            PreparedStatement pt = con.prepareStatement(sql);
+            pt.setInt(1, id);
+            ResultSet rs = pt.executeQuery();
+
+            if (rs.next()) {
+                String title = rs.getString("Title");
+                String artist = rs.getString("Artist");
+                String category = rs.getString("Category");
+                Double time = rs.getDouble("Time");
+                String path = rs.getString("Path");
+
+                return new Song(artist, title, time, category, path, id);
+            } else {
+                return null;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
+
 
     @Override
     public List<Song> getAllSongs() throws SQLException {
@@ -60,4 +82,22 @@ public class SongDAO implements ISongDAO {
         }
 
     }
+    @Override
+    public void deleteSongs(ObservableList<Song> songsToDelete) throws SQLException {
+        try (Connection con = dbConnection.getConnection()) {
+            String sql = "DELETE FROM Songs WHERE ID=?";
+            try (PreparedStatement pt = con.prepareStatement(sql)) {
+                for (Song song : songsToDelete) {
+                    int id = song.getId();
+                    pt.setInt(1, id);
+                    pt.addBatch();
+                }
+                pt.clearParameters();
+                pt.executeBatch();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }
