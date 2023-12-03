@@ -26,6 +26,10 @@ public class MPModel {
 
 
     }
+    public void deleteSong(ObservableList<Song> songsToDelete){
+        playerLogic.deleteSelectedSongs(songsToDelete);
+    }
+
 
     public ObservableList<Song> returnSongList() throws SQLException {
         return playerLogic.returnSongList();
