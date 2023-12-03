@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class MPController implements Initializable {
@@ -129,10 +130,20 @@ public class MPController implements Initializable {
 
     public void deleteSongs(ActionEvent actionEvent) throws SQLException {
         ObservableList<Song> selectedSongs = songTable.getSelectionModel().getSelectedItems();
+
         if (!selectedSongs.isEmpty()) {
-            SongManager.deleteSelectedSongs(selectedSongs);
-            updateTable();
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirmation");
+            alert.setHeaderText("Confirm Deletion");
+            alert.setContentText("Are you sure that you want to delete the selected song?");
+            Optional<ButtonType> result = alert.showAndWait();
+
+            if (result.isPresent() && result.get() == ButtonType.OK) {
+                model.deleteSong(selectedSongs);
+                updateTable();
+            }
         }
+
     }
 
     public void closeApplication(ActionEvent actionEvent) throws SQLException {
