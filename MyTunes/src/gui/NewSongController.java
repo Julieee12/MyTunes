@@ -1,5 +1,6 @@
 package gui;
 
+import be.Song;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -36,6 +37,8 @@ public class NewSongController implements Initializable {
     public ChoiceBox<String> categoryBox;
     private String[] categories = {"Pop", "Rap", "Jazz", "Rock"};
 
+    private boolean editMode = false; // Flag to indicate edit mode
+    private Song songToEdit; // Store the song to edit
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -62,11 +65,21 @@ public class NewSongController implements Initializable {
         }
     }
 
+    public void setSongToEdit(Song songToEdit) {
+        this.songToEdit = songToEdit;
+
+        // Set the existing song details in the UI for editing
+        titlefield.setText(songToEdit.getSongTitle());
+        artistfield.setText(songToEdit.getArtist());
+        timeField.setText(String.valueOf(songToEdit.getDuration()));
+        fileField.setText(songToEdit.getPath());
+        categoryBox.setValue(songToEdit.getCategory());
+    }
+
     public void more() {
         addNewCategory();
 
     }
-
 
     private void addNewCategory() {
         //Adds the new window where you set the category
@@ -92,19 +105,33 @@ public class NewSongController implements Initializable {
             String category = categoryBox.getValue();
             Double time = Double.parseDouble(timeField.getText());
             String path = fileField.getText();
-            model.createSong(title, artist, category, time, path);
-            mpController.updateTable(); // Notify MPController to update TableView
 
-            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow(); //closes the fxml
+            // Create or update the song in the model
+            if (editMode) {
+                model.updateSong(songToEdit, title, artist, category, time, path);
+            } else {
+                model.createSong(title, artist, category, time, path);
+            }
+
+            // Notify MPController to update TableView
+            mpController.updateTable();
+
+            // Close the stage
+            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             stage.close();
-
-
         }
+
+    public void setStage(Stage stage) {
+        this.stage = stage;
+    }
 
 
     public void cancelSong(ActionEvent event) {
         Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
         stage.close();
+    }
+    public void setEditMode(boolean editMode) {
+        this.editMode = editMode;
     }
 }
 

@@ -110,7 +110,7 @@ public class MPController implements Initializable {
 
     }
     public void play(){
-
+        //play button in view is here
     }
     public void next(){
 
@@ -202,7 +202,26 @@ public class MPController implements Initializable {
     public void editExistingPlaylist(ActionEvent actionEvent) {
     }
 
-    public void editExistingSong(ActionEvent actionEvent) {
+    public void editExistingSong(ActionEvent actionEvent) throws IOException {
+        // Get the selected song from the table
+        Song selectedSong = songTable.getSelectionModel().getSelectedItem();
+
+        if (selectedSong != null) {
+            // Open the NewSong window for editing
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("NewSong.fxml"));
+            Parent root = loader.load();
+
+            NewSongController newSongController = loader.getController();
+            newSongController.setMPController(this);
+            newSongController.setEditMode(true); // Set edit mode to true
+            newSongController.setSongToEdit(selectedSong); // Pass the selected song
+
+            Stage primaryStage = new Stage();
+            primaryStage.setScene(new Scene(root));
+            primaryStage.show();
+
+
+        }
     }
 
 

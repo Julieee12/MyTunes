@@ -36,7 +36,9 @@ public class MPModel {
 
     }
 
-
+    public void updateSong(Song songToEdit, String title, String artist, String category, Double time, String path) throws SQLException {
+        playerLogic.updateSong(songToEdit, title, artist, category, time, path);
+    }
 
 
 }

@@ -39,6 +39,14 @@ public class SongManager {
 
     }
 
+    public void updateSong(Song songToEdit, String title, String artist, String category, Double time, String path) throws SQLException {
+        songList.remove(songToEdit); // Remove the old version of the song
+        Song updatedSong = new Song(artist, title, time, category, path);
+        songList.add(updatedSong); // Add the updated version
+        songDAO.updateSong(songToEdit, updatedSong);
+
+    }
+
 
 
 }

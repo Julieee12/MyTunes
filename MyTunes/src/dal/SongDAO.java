@@ -29,6 +29,26 @@ public class SongDAO implements ISongDAO {
 
     }
 
+    public void updateSong(Song oldSong, Song newSong) throws SQLException {
+        try {
+            String sql = "UPDATE songs SET Title=?, Artist=?, Category=?, Time=?, Path=? WHERE id=?";
+
+            Connection connection = dbConnection.getConnection();
+            try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+                preparedStatement.setString(1, newSong.getSongTitle());
+                preparedStatement.setString(2, newSong.getArtist());
+                preparedStatement.setString(3, newSong.getCategory());
+                preparedStatement.setDouble(4, newSong.getDuration());
+                preparedStatement.setString(5, newSong.getPath());
+                preparedStatement.setInt(6, oldSong.getId());
+                preparedStatement.executeUpdate();
+            }
+
+        } catch (SQLException throwables) {
+            throw new SQLException("Could not update song.", throwables);
+        }
+    }
+
     @Override
     public Song getSong(int id) {
 
@@ -52,6 +72,10 @@ public class SongDAO implements ISongDAO {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public int editSong (int id){
+        return id;
     }
 
 
