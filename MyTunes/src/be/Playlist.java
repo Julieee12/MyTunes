@@ -7,33 +7,45 @@ import java.util.List;
 
 public class Playlist {
 
-    private List<Song> allsongs;
-    private String name;
-    private int id;
+    private ArrayList<Song> allSongs;
+    private String playlistName;
 
 
-    public Playlist(){
-        this.allsongs=new ArrayList<>();
-        this.id=id;
-        this.name=name;
+
+    public Playlist(String playlistName){
+        this.allSongs = new ArrayList<Song>();
+        this.playlistName = playlistName;
+
     }
-    public List<Song> getAllsongs(){
-        return allsongs;
+
+    public String getName(){
+        return playlistName;
     }
     public void setName(String name) {
-        this.name = name;
+        this.playlistName = name;
     }
     public void addSong(Song song){
-        allsongs.add(song);
+        allSongs.add(song);
     }
+    public List<Song> getAllsongs(){
+        return allSongs;
+    }
+
     public void removeSong(Song song){
-        allsongs.remove(song);
+        allSongs.remove(song);
     }
-    public String getName(){
-        return name;
+
+    public double totalTime() {
+        double totalTime = 0;
+
+        for(Song song : allSongs){
+            totalTime = totalTime + song.getDuration();
+        }
+        return totalTime;
     }
-    public int getId(){
-        return id;
+
+    public int songCount(){
+        return 0;
     }
 
 
