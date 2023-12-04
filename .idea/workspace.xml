@@ -6,14 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="9417ade9-2d98-480b-b2b5-2fdc0dbdce5d" name="Changes" comment="Deletion functionality within database.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyTunes/src/be/Song.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/be/Song.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyTunes/src/bll/SongManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/bll/SongManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyTunes/src/dal/ISongDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/dal/ISongDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyTunes/src/dal/SongDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/dal/SongDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyTunes/src/gui/MPModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/gui/MPModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/be/Song.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/be/Song.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyTunes/src/be/Playlist.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/be/Playlist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/be/Playlist.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/be/Playlist.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/bll/SongManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/bll/SongManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/dal/ISongDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/dal/ISongDAO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/dal/SongDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/dal/SongDAO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/gui/MPModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/gui/MPModel.class" afterDir="false" />
     </list>
@@ -21,6 +16,13 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
