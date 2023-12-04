@@ -12,6 +12,8 @@ public class MPModel {
     private SongManager playerLogic;
     private MPController observerController;
 
+
+
     public MPModel() {
         this.playerLogic = new SongManager();
     }
