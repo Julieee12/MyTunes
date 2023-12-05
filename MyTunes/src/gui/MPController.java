@@ -1,6 +1,7 @@
 package gui;
 
 import be.Song;
+import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
@@ -15,7 +16,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
-
+import javafx.util.Duration;
+import javafx.scene.control.Slider;
+import javafx.scene.input.MouseEvent;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -53,6 +56,7 @@ public class MPController implements Initializable {
     public TableColumn<Song, Double> timeColumn;
     private int currentSong;
     private MediaPlayer mediaPlayer;
+    public Slider songSlider;
 
 
     @Override
@@ -84,7 +88,15 @@ public class MPController implements Initializable {
             }
             //TODO: After edit, a song is selected, why???
         });
+        //IDEA:
+        /*
+        volumeSlider.getValueProperty().addlisten(
+                mediaPlayer.setVolume(newValue);
+        )
+         */
     }
+
+
 
     public void setMediaPlayer(Song song) {
         //If a song was playing, stop it
@@ -96,9 +108,21 @@ public class MPController implements Initializable {
         Media media = new Media(new File(path).toURI().toString());
         mediaPlayer = new MediaPlayer(media);
 
+        mediaPlayer.setOnReady(this::updateCurrentlyPlayingSong);
         mediaPlayer.setOnPlaying(this::updateCurrentlyPlayingSong);
         mediaPlayer.setOnPaused(this::updateCurrentlyPlayingSong);
+
+        // Update slider value based on current time
+        mediaPlayer.currentTimeProperty().addListener((observable, oldValue, newValue) -> {
+            Platform.runLater(() -> {
+                System.out.println(newValue.toMillis() / mediaPlayer.getTotalDuration().toMillis() * 100);
+                songSlider.setValue(newValue.toMillis() / mediaPlayer.getTotalDuration().toMillis() * 100);
+            });
+        });
+
+        mediaPlayer.setOnEndOfMedia(this::playNextSong);
     }
+
 
     public void playPauseAction(ActionEvent actionEvent) {
         System.out.println("Play/Pause button clicked");
@@ -119,7 +143,7 @@ public class MPController implements Initializable {
 
     }
 
-    private void updateCurrentlyPlayingSong() {
+    private void updateCurrentlyPlayingSong() { //currentlyPlayingSong is a label, displaying what song is playing
         if (mediaPlayer != null) {
             MediaPlayer.Status status = mediaPlayer.getStatus();
             System.out.println(status);
@@ -181,22 +205,55 @@ public class MPController implements Initializable {
     }
 
 
-    public void next() {
-
+    public void selectNextSong() {
+        if (currentSong < songTable.getItems().size() - 1) {
+            currentSong++;
+            Song selectedSong = songTable.getItems().get(currentSong);
+            songTable.getSelectionModel().select(selectedSong);
+        }
+        //TOOO: Add 'else' to switch to first song
     }
 
-    public void previous() {
-
+    public void selectPreviousSong() {
+        if (currentSong > 0) {
+            currentSong--;
+            Song selectedSong = songTable.getItems().get(currentSong);
+            songTable.getSelectionModel().select(selectedSong);
+        }
     }
-
 
     public void playPreviousSong(ActionEvent actionEvent) {
+        selectPreviousSong();
+        mediaPlayer.play(); //Having known that when a song is selected, a media player is created for it (event listener)
     }
 
-    public void playSongPause(ActionEvent actionEvent) {
+    public void playNextSong() { //When Next button is clicked (but ActionEvent parameter is omitted, as it's not necessary
+        selectNextSong();
+        mediaPlayer.play();
     }
 
-    public void platNextSong(ActionEvent actionEvent) {
+    public void handleSliderDragDetected(MouseEvent event) {
+        if (mediaPlayer != null) {
+            if (mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING) {
+                mediaPlayer.pause();
+            }
+            // Also stop the slider from updating during drag
+            // songSlider.setDisable(true);
+        }
+    }
+
+    public void handleSliderDragDone(MouseEvent event) {
+        if (mediaPlayer != null && mediaPlayer.getStatus() == MediaPlayer.Status.PAUSED) {
+            // Calculate the new time based on the slider value
+            double currentTimeMillis = songSlider.getValue() / 100 * mediaPlayer.getTotalDuration().toMillis();
+            Duration seekTime = Duration.millis(currentTimeMillis);
+
+            // Seek to the new time
+            mediaPlayer.seek(seekTime);
+            mediaPlayer.play();
+        }
+        // Enable the slider after dragging is done
+        // songSlider.setDisable(false);
     }
 
     public void addNewSong(ActionEvent actionEvent) throws IOException {

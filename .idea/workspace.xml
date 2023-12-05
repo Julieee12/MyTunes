@@ -7,8 +7,9 @@
     <list default="true" id="9417ade9-2d98-480b-b2b5-2fdc0dbdce5d" name="Changes" comment="Deletion functionality within database.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyTunes/src/gui/MPController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/gui/MPController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyTunes/src/gui/MPModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/gui/MPModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyTunes/src/gui/MusicPlayer.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/gui/MusicPlayer.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyTunes/src/gui/NewSongController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/gui/NewSongController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/bll/PlaylistManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/bll/PlaylistManager.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,6 +106,7 @@
       <workItem from="1701631443655" duration="399000" />
       <workItem from="1701633286015" duration="2918000" />
       <workItem from="1701684132199" duration="14562000" />
+      <workItem from="1701725901801" duration="13844000" />
     </task>
     <task id="LOCAL-00001" summary="Cancel button functionality and addNewPlaylist.">
       <option name="closed" value="true" />
