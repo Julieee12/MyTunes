@@ -29,7 +29,7 @@
       <Label fx:id="currentlyPlayingSong" layoutX="239.0" layoutY="91.0" prefHeight="18.0" prefWidth="357.0" text="...song is Playing" />
       <Label layoutX="543.0" layoutY="139.0" text="All Songs" />
       <Button fx:id="newsong" layoutX="543.0" layoutY="553.0" mnemonicParsing="false" onAction="#addNewSong" text="New" />
-      <ListView fx:id="songsInPlaylist" layoutX="239.0" layoutY="168.0" prefHeight="376.0" prefWidth="183.0" />
+      <ListView fx:id="songsInPlaylist" layoutX="251.0" layoutY="168.0" prefHeight="376.0" prefWidth="187.0" />
       <TextField fx:id="searchInput" layoutX="692.0" layoutY="65.0" prefHeight="25.0" prefWidth="123.0" />
       <Text layoutX="652.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Filter" />
       <Button fx:id="newPlaylist" layoutX="20.0" layoutY="553.0" mnemonicParsing="false" onAction="#addNewPlaylist" text="New" />
@@ -53,10 +53,11 @@
             <TableColumn fx:id="timeColumn" prefWidth="70.0" text="Time" />
         </columns>
       </TableView>
-      <TableView fx:id="playlistTable" layoutX="20.0" layoutY="168.0" prefHeight="376.0" prefWidth="200.0">
+      <TableView fx:id="playlistTable" layoutX="20.0" layoutY="168.0" prefHeight="376.0" prefWidth="216.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
+          <TableColumn fx:id="columnPlaylistName" prefWidth="75.0" text="Name" />
+          <TableColumn fx:id="columnSongCount" prefWidth="75.0" text="Songs" />
+            <TableColumn fx:id="columnTotalTime" prefWidth="75.0" text="Time" />
         </columns>
       </TableView>
    </children>

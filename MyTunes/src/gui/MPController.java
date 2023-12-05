@@ -1,10 +1,12 @@
 package gui;
 
+import be.Playlist;
 import be.Song;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -26,26 +28,52 @@ import java.util.ResourceBundle;
 public class MPController implements Initializable {
 
     private MPModel model;
+    @FXML
+    private Button prevsong;
+    @FXML
+    private Button nextsong;
+    @FXML
+    private Button newsong;
+    @FXML
+    private Button playPause;
+    @FXML
+    private Label currentlyPlayingSong;
+    @FXML
+    private ListView songsInPlaylist;
+    @FXML
+    private TextField searchInput;
+    @FXML
+    private Button newPlaylist;
+    @FXML
+    private Button deletePlaylistID;
+    @FXML
+    private Button deleteSongPlaylistID;
+    @FXML
+    private Button deleteSongsID;
+    @FXML
+    private Button close;
+    @FXML
+    private Button moveSongs;
+    @FXML
+    private Button searchbutton;
+    @FXML
+    private Button moveUp;
+    @FXML
+    private Button moveDown;
+    @FXML
+    private Button editPlaylist;
+    @FXML
+    private Button editSong;
 
-    public Button prevsong;
-    public Button nextsong;
-    public Button newsong;
-    public Button playPause;
-    public Label currentlyPlayingSong;
-    public ListView songsInPlaylist;
-    public TextField searchInput;
-    public Button newPlaylist;
-    public Button deletePlaylistID;
-    public Button deleteSongPlaylistID;
-    public Button deleteSongsID;
-    public Button close;
-    public Button moveSongs;
-    public Button searchbutton;
-    public Button moveUp;
-    public Button moveDown;
-    public Button editPlaylist;
-    public Button editSong;
-    public TableView playlistTable;
+    //region @FXML TableView and Columns
+    @FXML
+    public TableView <Playlist> playlistTable;
+    @FXML
+    public TableColumn <Playlist, String> columnPlaylistName;
+    @FXML
+    public TableColumn <Playlist, Integer> columnSongCount;
+   @FXML
+   public TableColumn <Playlist, String> columnTotalTime;
     public TableView<Song> songTable;
     public TableColumn<Song, String> titleColumn;
     public TableColumn<Song, String> artistColumn;
@@ -59,16 +87,23 @@ public class MPController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         this.model = MPModel.getInstance();
         ObservableList<Song> data = null;
+        ObservableList<Playlist> playlistData = null;
         try {
             data = model.returnSongList();
+            playlistData = model.returnPlaylist();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        titleColumn.setCellValueFactory(new PropertyValueFactory<Song, String>("songTitle")); //connects data with table view
+        titleColumn.setCellValueFactory(new PropertyValueFactory<Song, String>("songTitle")); //connects song data with song table view
         artistColumn.setCellValueFactory(new PropertyValueFactory<Song, String>("artist"));
         categoryColumn.setCellValueFactory(new PropertyValueFactory<Song, String>("category"));
-        timeColumn.setCellValueFactory(new PropertyValueFactory<Song, Double>("duration"));
+        timeColumn.setCellValueFactory(new PropertyValueFactory<Song, Double>("SongDurationString"));
         songTable.setItems(data);
+
+        columnPlaylistName.setCellValueFactory(new PropertyValueFactory<Playlist, String>("playlistName"));
+        columnSongCount.setCellValueFactory(new PropertyValueFactory<Playlist, Integer>("songCount"));
+        columnTotalTime.setCellValueFactory(new PropertyValueFactory<Playlist, String>("totalTime"));
+        playlistTable.setItems(playlistData);
 
         try {
             searchSong();
@@ -84,6 +119,7 @@ public class MPController implements Initializable {
             }
             //TODO: After edit, a song is selected, why???
         });
+
     }
 
     public void setMediaPlayer(Song song) {
@@ -216,11 +252,13 @@ public class MPController implements Initializable {
         ObservableList<Song> data = model.returnSongList();
         // Update TableView with the latest data...
     }
-
-
     public void addNewPlaylist(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("NewPlaylist.fxml"));
         Parent root = loader.load();
+
+        NewPLController newPLController = loader.getController();
+        newPLController.setMPController(this);
+
         Stage primaryStage = new Stage();
         primaryStage.setScene(new Scene(root));
         primaryStage.show();

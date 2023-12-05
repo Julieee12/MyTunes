@@ -15,9 +15,11 @@ public class PlaylistManager {
         playlistList.add(newPlaylist);
     }
 
-    public static ObservableList<Playlist> returnPlaylist() {
+    public ObservableList<Playlist> returnPlaylist() {
         return playlistList;
     }
+
+
 
 
 }

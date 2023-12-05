@@ -103,14 +103,22 @@ public class NewSongController implements Initializable {
             String title = titlefield.getText();
             String artist = artistfield.getText();
             String category = categoryBox.getValue();
-            Double time = Double.parseDouble(timeField.getText());
+            String time = timeField.getText();
             String path = fileField.getText();
 
+            //lets user type time in String
+            double duration = 0;
+            String[] parts = time.split(":");
+            if (parts.length == 2) {
+                int minutes = Integer.parseInt(parts[0]);
+                int seconds = Integer.parseInt(parts[1]);
+                duration = minutes * 60 + seconds;
+            }
             // Create or update the song in the model
             if (editMode) {
-                model.updateSong(songToEdit, title, artist, category, time, path);
+                model.updateSong(songToEdit, title, artist, category, duration, path);
             } else {
-                model.createSong(title, artist, category, time, path);
+                model.createSong(title, artist, category, duration, path);
             }
 
             // Notify MPController to update TableView
