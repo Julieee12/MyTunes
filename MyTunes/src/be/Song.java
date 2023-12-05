@@ -74,4 +74,15 @@ public class Song {
     public String getPath() {
         return filePath;
     }
+
+    //saves from seconds to String for table view
+    public String getSongDurationString() {
+
+        long minutes = (long) ((duration % 3600) / 60);
+        long seconds = (long) (duration % 60);
+
+        return String.format("%02d:%02d", minutes, seconds);
+    }
 }
+
+

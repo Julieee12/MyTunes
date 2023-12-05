@@ -106,33 +106,66 @@ public class NewSongController implements Initializable {
         Double time = Double.parseDouble(timeField.getText());
         String path = fileField.getText();
 
+
         // Create or update the song in the model
         if (editMode) {
             model.updateSong(songToEdit, title, artist, category, time, path);
         } else {
             model.createSong(title, artist, category, time, path);
+
+            public void saveSong (ActionEvent actionEvent) throws SQLException
+            { //once save is clicked input will be saved also for the song
+                String title = titlefield.getText();
+                String artist = artistfield.getText();
+                String category = categoryBox.getValue();
+                String time = timeField.getText();
+                String path = fileField.getText();
+
+                //lets user type time in String
+                double duration = 0;
+                String[] parts = time.split(":");
+                if (parts.length == 2) {
+                    int minutes = Integer.parseInt(parts[0]);
+                    int seconds = Integer.parseInt(parts[1]);
+                    duration = minutes * 60 + seconds;
+                }
+                // Create or update the song in the model
+                if (editMode) {
+                    model.updateSong(songToEdit, title, artist, category, duration, path);
+                } else {
+                    model.createSong(title, artist, category, duration, path);
+                }
+
+                // Notify MPController to update TableView
+                mpController.updateTable();
+
+                // Close the stage
+                Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+                stage.close();
+
+            }
+
+            // Notify MPController to update TableView
+            mpController.updateTable();
+
+            // Close the stage
+            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            stage.close();
         }
 
-        // Notify MPController to update TableView
-        mpController.updateTable();
+        public void setStage (Stage stage){
+            this.stage = stage;
+        }
 
-        // Close the stage
-        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        stage.close();
+
+        public void cancelSong (ActionEvent event){
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.close();
+        }
+
+        public void setEditMode ( boolean editMode){
+            this.editMode = editMode;
+        }
     }
 
-    public void setStage(Stage stage) {
-        this.stage = stage;
-    }
-
-
-    public void cancelSong(ActionEvent event) {
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.close();
-    }
-
-    public void setEditMode(boolean editMode) {
-        this.editMode = editMode;
-    }
-}
 

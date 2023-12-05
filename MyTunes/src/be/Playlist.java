@@ -18,7 +18,7 @@ public class Playlist {
 
     }
 
-    public String getName(){
+    public String getPlaylistName(){
         return playlistName;
     }
     public void setName(String name) {
@@ -35,17 +35,22 @@ public class Playlist {
         allSongs.remove(song);
     }
 
-    public double totalTime() {
-        double totalTime = 0;
+    public String getTotalTime() {
+        double totalSeconds = 0;
 
-        for(Song song : allSongs){
-            totalTime = totalTime + song.getDuration();
+        for (Song song : allSongs) {
+            totalSeconds += Math.round(song.getDuration()); // Round to the nearest second
         }
-        return totalTime;
+
+        long hours = (long) (totalSeconds / 3600);
+        long minutes = (long) ((totalSeconds % 3600) / 60);
+        long seconds = (long) (totalSeconds % 60);
+
+        return String.format("%02d:%02d:%02d", hours, minutes, seconds);
     }
 
-    public int songCount(){
-        return 0;
+    public int getSongCount(){
+        return allSongs.size();
     }
 
 
