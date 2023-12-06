@@ -1,6 +1,6 @@
 package be;
 
-//This class represents the whole List of the songs where the songs are gonna be present.
+
 
 import java.util.ArrayList;
 import java.util.List;
