@@ -37,7 +37,7 @@ public class NewPLController implements Initializable {
 
     public void savePlaylist(ActionEvent event) throws SQLException {
         String playlistName = nameInput.getText();
-        model.createPlaylist(playlistName);
+        model.createSinglePlaylist(playlistName);
 
         mpController.updateTable();
 

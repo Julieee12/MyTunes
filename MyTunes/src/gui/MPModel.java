@@ -46,16 +46,17 @@ public class MPModel {
         playerSongLogic.updateSong(songToEdit, title, artist, category, time, path);
     }
 
-    public void createPlaylist(String playlistName){
-        playerPlaylistLogic.createSinglePlaylist(playlistName);
+    public void createSinglePlaylist (String playlistName){
+        playerPlaylistLogic.createPlaylist(playlistName);
     }
 
-    public ObservableList<Playlist> returnPlaylist(){
+    public ObservableList<Playlist> returnPlaylist() throws SQLException {
         return playerPlaylistLogic.returnPlaylist();
     }
-
 
     public void deletePlaylists(ObservableList<Playlist> playlistsToDelete) throws SQLException {
         playerPlaylistLogic.deleteSelectedPlaylists(playlistsToDelete);
     }
+
+
 }

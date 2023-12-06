@@ -15,11 +15,8 @@ public class SongManager {
 
 
 
-
-    //ArrayList<Song> songList = new ArrayList<Song>();
-
     public void createSong(String title, String artist, String category, Double time, String path){
-        Song newSong = new Song(artist, title, time, category, path); // new object
+        Song newSong = new Song(artist, title, time, category, path); // new song object
         songList.add(newSong);
         songDAO.createSong(newSong); //creates a song in database as well
     }

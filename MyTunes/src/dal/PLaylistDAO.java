@@ -4,7 +4,8 @@ import be.Playlist;
 import be.Song;
 import javafx.collections.ObservableList;
 
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class PlaylistDAO implements IPlaylistDAO{
@@ -13,7 +14,14 @@ public class PlaylistDAO implements IPlaylistDAO{
 
     @Override
     public void createPlaylist(Playlist p) {
-        
+        try(Connection con = dbConnection.getConnection()) {
+            String sql = "INSERT INTO Playlists (Name)" + " VALUES (?)";
+            PreparedStatement pt = con.prepareStatement(sql);
+            pt.setString(1, p.getPlaylistName());
+            pt.execute();
+        }catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
@@ -28,7 +36,25 @@ public class PlaylistDAO implements IPlaylistDAO{
 
     @Override
     public List<Playlist> getAllPlaylists() throws SQLException {
-        return null;
+        List <Playlist> playlists = new ArrayList<>();
+        try(Connection con = dbConnection.getConnection()){
+            String sql = "SELECT * FROM Playlists";
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while(rs.next()){
+
+                String name = rs.getString("Name");
+                int id = rs.getInt("IDP");
+
+                Playlist p = new Playlist(name,id);
+                playlists.add(p);
+
+            }
+            return playlists;
+        }
+        catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override

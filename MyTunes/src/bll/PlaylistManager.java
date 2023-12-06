@@ -2,21 +2,27 @@ package bll;
 
 import be.Playlist;
 import be.Song;
+import dal.IPlaylistDAO;
+import dal.PlaylistDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class PlaylistManager {
     private static ObservableList <Playlist> playlistList = FXCollections.observableArrayList();
+    IPlaylistDAO playlistDAO = new PlaylistDAO();
 
-    public void createSinglePlaylist (String playlistName){ //creates single playlist
+    public void createPlaylist (String playlistName){ //creates single playlist
         Playlist newPlaylist = new Playlist(playlistName);
         playlistList.add(newPlaylist);
+        playlistDAO.createPlaylist(newPlaylist);
     }
 
-    public ObservableList<Playlist> returnPlaylist() {
+    public ObservableList<Playlist> returnPlaylist() throws SQLException {
+        loadSongs();
         return playlistList;
     }
 
@@ -26,7 +32,20 @@ public class PlaylistManager {
         }
     }
 
+    public void loadSongs() throws SQLException {
+        playlistList.clear();
+        playlistList.addAll(playlistDAO.getAllPlaylists());
+
+    }
+
 
 
 
 }
+
+
+
+
+
+
+

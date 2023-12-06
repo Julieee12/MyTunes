@@ -9,12 +9,19 @@ public class Playlist {
 
     private ArrayList<Song> allSongs;
     private String playlistName;
+    private int id ;
 
 
 
     public Playlist(String playlistName){
         this.allSongs = new ArrayList<Song>();
         this.playlistName = playlistName;
+
+    }
+    public Playlist(String playlistName, int id){
+        this.allSongs = new ArrayList<Song>();
+        this.playlistName = playlistName;
+        this.id = id;
 
     }
 
