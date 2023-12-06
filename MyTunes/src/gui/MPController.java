@@ -3,6 +3,7 @@ package gui;
 import be.Playlist;
 import be.Song;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
@@ -367,9 +368,47 @@ public class MPController implements Initializable {
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         stage.close();
     }
+    private void updateSongsInPlaylistTable(Playlist playlist) {
+
+        songsInPlaylist.setItems(FXCollections.observableArrayList(playlist.getAllsongs()));
+    }
 
     public void moveSongsToPlaylists(ActionEvent actionEvent) {
+        // Get the selected song from the main song library table
+        Song selectedSong = songTable.getSelectionModel().getSelectedItem();
+
+        // Get the selected playlist from the playlist table
+        Playlist selectedPlaylist = playlistTable.getSelectionModel().getSelectedItem();
+
+        if (selectedSong == null || selectedPlaylist == null) {
+            //  alert to the user
+            showAlert("Please select a song and a playlist to move them.");
+            return;
+        }
+
+        // Adds the copied song to the selected playlist
+        //selectedPlaylist.addSong(copiedSong);
+
+        try {
+            model.addSongToPlaylist(selectedPlaylist, selectedSong);
+        } catch (Exception e ) {}
+
+        // Updates the songs in the playlist table dynamically
+        updateSongsInPlaylistTable(selectedPlaylist);
+
+        // Show a success message to the user
+        showAlert("Song moved to the playlist successfully!");
     }
+
+    // Method to show an alert to the user
+    private void showAlert(String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Information");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
 
 
     public void moveSongsUp(ActionEvent actionEvent) {

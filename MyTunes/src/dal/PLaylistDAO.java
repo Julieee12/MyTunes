@@ -61,4 +61,15 @@ public class PlaylistDAO implements IPlaylistDAO{
     public void deletePlaylist(ObservableList<Playlist> songsToDelete) throws SQLException {
 
     }
+
+    public void addSongToPlaylist(Playlist playlist, Song song) throws SQLException {
+        try (Connection con = dbConnection.getConnection()) {
+            String sql = "INSERT INTO PlaylistsSongs (PlaylistID, SongID) VALUES (?, ?)";
+            try (PreparedStatement pt = con.prepareStatement(sql)) {
+                pt.setInt(1, playlist.getId());
+                pt.setInt(2, song.getId());
+                pt.execute();
+            }
+        }
+    }
 }

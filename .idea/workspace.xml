@@ -5,23 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9417ade9-2d98-480b-b2b5-2fdc0dbdce5d" name="Changes" comment="Deletion functionality within database.">
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyTunes/src/be/Playlist.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/be/Playlist.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyTunes/src/bll/PlaylistManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/bll/PlaylistManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyTunes/src/bll/SongManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/bll/SongManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyTunes/src/dal/IPlaylistDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/dal/IPlaylistDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyTunes/src/dal/PLaylistDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/dal/PLaylistDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyTunes/src/gui/MPController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/gui/MPController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyTunes/src/gui/MPModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/gui/MPModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyTunes/src/gui/NewPLController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/gui/NewPLController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/be/Playlist.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/be/Playlist.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/bll/PlaylistManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/bll/PlaylistManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/bll/SongManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/bll/SongManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/dal/IPlaylistDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/dal/IPlaylistDAO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/dal/PLaylistDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/dal/PLaylistDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/dal/SongDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/dal/SongDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/gui/MPController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/gui/MPController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/gui/MPModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/gui/MPModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/gui/NewPLController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/gui/NewPLController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/gui/NewSongController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/gui/NewSongController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

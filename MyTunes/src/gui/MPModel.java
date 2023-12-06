@@ -57,6 +57,10 @@ public class MPModel {
     public void deletePlaylists(ObservableList<Playlist> playlistsToDelete) throws SQLException {
         playerPlaylistLogic.deleteSelectedPlaylists(playlistsToDelete);
     }
+    public void addSongToPlaylist(Playlist playlist, Song song) throws SQLException {
+        playlist.addSong(song);
+        playerPlaylistLogic.addSongToPlaylist(playlist, song);
+    }
 
 
 }

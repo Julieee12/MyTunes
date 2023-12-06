@@ -22,7 +22,7 @@ public class PlaylistManager {
     }
 
     public ObservableList<Playlist> returnPlaylist() throws SQLException {
-        loadSongs();
+        loadPlaylist();
         return playlistList;
     }
 
@@ -32,10 +32,13 @@ public class PlaylistManager {
         }
     }
 
-    public void loadSongs() throws SQLException {
+    public void loadPlaylist() throws SQLException {
         playlistList.clear();
         playlistList.addAll(playlistDAO.getAllPlaylists());
 
+    }
+    public void addSongToPlaylist(Playlist playlist, Song song) throws SQLException {
+        playlistDAO.addSongToPlaylist(playlist, song);
     }
 
 
