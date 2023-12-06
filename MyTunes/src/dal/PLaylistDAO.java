@@ -8,18 +8,21 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class PlaylistDAO implements IPlaylistDAO{
-    @Override
-    public void createPlaylist(Song s) {
+    private final databaseConnector dbConnection = new databaseConnector();
 
+
+    @Override
+    public void createPlaylist(Playlist p) {
+        
     }
 
     @Override
-    public Playlist getSong(int id) {
+    public Playlist getPlaylist(int id) {
         return null;
     }
 
     @Override
-    public void updatePlaylist(Song oldSong, Song newSong) throws SQLException {
+    public void updatePlaylist(Playlist oldPlaylist, Playlist newPLaylist) throws SQLException {
 
     }
 
@@ -29,7 +32,7 @@ public class PlaylistDAO implements IPlaylistDAO{
     }
 
     @Override
-    public void deletePlaylist(ObservableList<Song> songsToDelete) throws SQLException {
+    public void deletePlaylist(ObservableList<Playlist> songsToDelete) throws SQLException {
 
     }
 }
