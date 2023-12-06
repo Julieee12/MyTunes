@@ -308,6 +308,7 @@ public class MPController implements Initializable {
 
     public void updateTable() throws SQLException {
         ObservableList<Song> data = model.returnSongList();
+        ObservableList<Playlist> playlistdata = model.returnPlaylist();
         // Update TableView with the latest data...
     }
     public void addNewPlaylist(ActionEvent actionEvent) throws IOException {
@@ -322,12 +323,26 @@ public class MPController implements Initializable {
         primaryStage.show();
     }
 
-    public void deletePlaylist(ActionEvent actionEvent) {
+    public void deletePlaylist(ActionEvent actionEvent) throws SQLException {
+        ObservableList<Playlist> selectedPlaylists = playlistTable.getSelectionModel().getSelectedItems();
 
+        if (!selectedPlaylists.isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirmation");
+            alert.setHeaderText("Confirm Deletion");
+            alert.setContentText("Are you sure that you want to delete the selected playlist?");
+            Optional<ButtonType> result = alert.showAndWait();
+
+            if (result.isPresent() && result.get() == ButtonType.OK) {
+                model.deletePlaylists(selectedPlaylists);
+                updateTable();
+            }
+        }
     }
 
-    public void deleteSongInPlaylist(ActionEvent actionEvent) {
-    }
+    public void deleteSongInPlaylist(ActionEvent actionEvent) {}
+
+
 
     public void deleteSongs(ActionEvent actionEvent) throws SQLException {
         ObservableList<Song> selectedSongs = songTable.getSelectionModel().getSelectedItems();

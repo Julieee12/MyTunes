@@ -5,6 +5,7 @@ import be.Song;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class PlaylistManager {
@@ -17,6 +18,12 @@ public class PlaylistManager {
 
     public ObservableList<Playlist> returnPlaylist() {
         return playlistList;
+    }
+
+    public void deleteSelectedPlaylists(ObservableList<Playlist> playlistsToDelete) throws SQLException {
+        for (Playlist playlist : playlistsToDelete) {
+            playlistList.remove(playlist);
+        }
     }
 
 
