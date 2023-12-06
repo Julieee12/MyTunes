@@ -12,7 +12,7 @@ public interface IPlaylistDAO {
     public Playlist getPlaylist (int id);
     void updatePlaylist(Playlist oldPlaylist, Playlist newPLaylist) throws SQLException;
     public List<Playlist> getAllPlaylists() throws SQLException;
-    public void deletePlaylist(ObservableList<Playlist> songsToDelete) throws SQLException;
+    public void deletePlaylist(ObservableList<Playlist> playlistsToDelete) throws SQLException;
     public void addSongToPlaylist(Playlist playlist, Song song)throws SQLException;;
 
 }

@@ -26,7 +26,22 @@ public class PlaylistDAO implements IPlaylistDAO{
 
     @Override
     public Playlist getPlaylist(int id) {
-        return null;
+        try (Connection con = dbConnection.getConnection()) {
+            String sql = "SELECT * FROM Songs WHERE ID=?";
+            PreparedStatement pt = con.prepareStatement(sql);
+            pt.setInt(1, id);
+            ResultSet rs = pt.executeQuery();
+
+            if (rs.next()) {
+                String title = rs.getString("Title");
+
+                return new Playlist(title, id);
+            } else {
+                return null;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
@@ -58,8 +73,20 @@ public class PlaylistDAO implements IPlaylistDAO{
     }
 
     @Override
-    public void deletePlaylist(ObservableList<Playlist> songsToDelete) throws SQLException {
-
+    public void deletePlaylist(ObservableList<Playlist> playlistsToDelete) throws SQLException {
+        try (Connection con = dbConnection.getConnection()) {
+            String sql = "DELETE FROM Playlists WHERE IDP=?";
+            try (PreparedStatement pt = con.prepareStatement(sql)) {
+                for (Playlist playlist : playlistsToDelete) {
+                    int id = playlist.getId();
+                    pt.setInt(1, id);
+                    pt.addBatch();
+                }
+                pt.executeBatch();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void addSongToPlaylist(Playlist playlist, Song song) throws SQLException {
