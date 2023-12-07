@@ -25,20 +25,24 @@ public class PlaylistManager {
     }
 
     public ObservableList<Playlist> returnPlaylist() throws SQLException {
-        loadSongs();
+        loadPlaylist();
         return playlistList;
     }
 
     public void deleteSelectedPlaylists(ObservableList<Playlist> playlistsToDelete) throws SQLException {
-        for (Playlist playlist : playlistsToDelete) {
-            playlistList.remove(playlist);
-        }
+        //for (Playlist playlist : playlistsToDelete) {
+            //playlistList.remove(playlist);
+            playlistDAO.deletePlaylist(playlistsToDelete);
+        //}
     }
 
-    public void loadSongs() throws SQLException {
+    public void loadPlaylist() throws SQLException {
         playlistList.clear();
         playlistList.addAll(playlistDAO.getAllPlaylists());
 
+    }
+    public void addSongToPlaylist(Playlist playlist, Song song) throws SQLException {
+        playlistDAO.addSongToPlaylist(playlist, song);
     }
 
     public void updatePlaylist(Playlist playlistToUpdate) throws SQLException {
