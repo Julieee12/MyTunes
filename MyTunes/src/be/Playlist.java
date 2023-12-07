@@ -37,9 +37,6 @@ public class Playlist {
     public List<Song> getAllsongs(){
         return allSongs;
     }
-    public int getId(){
-        return id;
-    }
 
     public void removeSong(Song song){
         allSongs.remove(song);
