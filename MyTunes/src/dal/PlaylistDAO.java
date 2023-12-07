@@ -2,6 +2,7 @@ package dal;
 
 import be.Playlist;
 import be.Song;
+import com.microsoft.sqlserver.jdbc.SQLServerException;
 import javafx.collections.ObservableList;
 
 import java.sql.*;
@@ -111,5 +112,41 @@ public class PlaylistDAO implements IPlaylistDAO{
                 pt.execute();
             }
         }
+    }
+    /**
+     * Retrieves a list of songs that belong to a specific playlist from the database.
+     * @param playlist The playlist for which songs are to be retrieved.
+     * @return A list of songs associated with the given playlist.
+     */
+    public List<Song> getAllSongsInPlaylist(Playlist playlist) throws SQLServerException {
+        ArrayList<Song> songsInPlaylist = new ArrayList<>();
+        try (Connection con = dbConnection.getConnection()) {
+            // SQL query to join Songs and PlaylistsSongs tables and retrieve songs for the current playlist
+            String sql = "SELECT * FROM Songs " +
+                    "JOIN PlaylistsSongs ON Songs.ID = PlaylistsSongs.SongID " +
+                    "WHERE PlaylistsSongs.PlaylistID = ?";
+            try (PreparedStatement pt = con.prepareStatement(sql)) {
+                // Set the PlaylistID parameter in the SQL query to the ID of the current playlist
+                pt.setInt(1, playlist.getId());
+
+                try (ResultSet rs = pt.executeQuery()) {
+                    while (rs.next()) {
+                        String title = rs.getString("Title");
+                        String artist = rs.getString("Artist");
+                        String category = rs.getString("Category");
+                        double time = rs.getDouble("Time");
+                        int id = rs.getInt("ID");
+                        String path = rs.getString("Path");
+
+                        Song s = new Song(artist,title,time,category,path,id);
+                        songsInPlaylist.add(s);
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return songsInPlaylist;
     }
 }

@@ -39,6 +39,11 @@ public class PlaylistManager {
     public void loadPlaylist() throws SQLException {
         playlistList.clear();
         playlistList.addAll(playlistDAO.getAllPlaylists());
+        // Load songs for each playlist
+        for (Playlist playlist : playlistList) {
+            List<Song> songsInPlaylist = playlistDAO.getAllSongsInPlaylist(playlist);
+            playlist.setAllSongs((ArrayList<Song>) songsInPlaylist);
+        }
 
     }
     public void addSongToPlaylist(Playlist playlist, Song song) throws SQLException {

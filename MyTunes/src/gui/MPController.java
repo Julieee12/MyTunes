@@ -91,24 +91,13 @@ public class MPController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         this.model = MPModel.getInstance();
-        ObservableList<Song> data = null;
-        ObservableList<Playlist> playlistData = null;
+        ObservableList<Song> data;
         try {
+            updateTable();
             data = model.returnSongList();
-            playlistData = model.returnPlaylist();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        titleColumn.setCellValueFactory(new PropertyValueFactory<Song, String>("songTitle")); //connects song data with song table view
-        artistColumn.setCellValueFactory(new PropertyValueFactory<Song, String>("artist"));
-        categoryColumn.setCellValueFactory(new PropertyValueFactory<Song, String>("category"));
-        timeColumn.setCellValueFactory(new PropertyValueFactory<Song, Double>("SongDurationString"));
-        songTable.setItems(data);
-
-        columnPlaylistName.setCellValueFactory(new PropertyValueFactory<Playlist, String>("playlistName"));
-        columnSongCount.setCellValueFactory(new PropertyValueFactory<Playlist, Integer>("songCount"));
-        columnTotalTime.setCellValueFactory(new PropertyValueFactory<Playlist, String>("totalTime"));
-        playlistTable.setItems(playlistData);
 
         try {
             searchSong();
@@ -124,6 +113,26 @@ public class MPController implements Initializable {
             }
             //TODO: After edit, a song is selected, why???
         });
+
+        //shows songs for the selected playlist
+        playlistTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                updateSongsInPlaylistTable(newSelection);
+            }
+        });
+
+        //plays selected song from songs in playlist
+        songsInPlaylist.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                System.out.println("Selected Song: " + newSelection);
+                for (Song song : data) {
+                    if (song.getSongTitle().equals(newSelection.toString())) {
+                        setMediaPlayer(song);
+                    }
+                }
+            }
+        });
+
 
         //IDEA:
         /*
@@ -308,8 +317,24 @@ public class MPController implements Initializable {
     }
 
     public void updateTable() throws SQLException {
-        ObservableList<Song> data = model.returnSongList();
-        ObservableList<Playlist> playlistdata = model.returnPlaylist();
+        ObservableList<Song> data = null;
+        ObservableList<Playlist> playlistData = null;
+        try {
+            data = model.returnSongList();
+            playlistData = model.returnPlaylist();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        titleColumn.setCellValueFactory(new PropertyValueFactory<Song, String>("songTitle")); //connects song data with song table view
+        artistColumn.setCellValueFactory(new PropertyValueFactory<Song, String>("artist"));
+        categoryColumn.setCellValueFactory(new PropertyValueFactory<Song, String>("category"));
+        timeColumn.setCellValueFactory(new PropertyValueFactory<Song, Double>("SongDurationString"));
+        songTable.setItems(data);
+
+        columnPlaylistName.setCellValueFactory(new PropertyValueFactory<Playlist, String>("playlistName"));
+        columnSongCount.setCellValueFactory(new PropertyValueFactory<Playlist, Integer>("songCount"));
+        columnTotalTime.setCellValueFactory(new PropertyValueFactory<Playlist, String>("totalTime"));
+        playlistTable.setItems(playlistData);
         // Update TableView with the latest data...
     }
     public void addNewPlaylist(ActionEvent actionEvent) throws IOException {
@@ -370,10 +395,16 @@ public class MPController implements Initializable {
     }
     private void updateSongsInPlaylistTable(Playlist playlist) {
 
-        songsInPlaylist.setItems(FXCollections.observableArrayList(playlist.getAllsongs()));
+        ObservableList<String> songTitles = FXCollections.observableArrayList();
+
+        for (Song song : playlist.getAllsongs()) {
+            songTitles.add(song.getSongTitle());
+        }
+
+        songsInPlaylist.setItems(songTitles);
     }
 
-    public void moveSongsToPlaylists(ActionEvent actionEvent) {
+    public void moveSongsToPlaylists(ActionEvent actionEvent) throws SQLException {
         // Get the selected song from the main song library table
         Song selectedSong = songTable.getSelectionModel().getSelectedItem();
 
@@ -395,7 +426,7 @@ public class MPController implements Initializable {
 
         // Updates the songs in the playlist table dynamically
         updateSongsInPlaylistTable(selectedPlaylist);
-
+        updateTable();
         // Show a success message to the user
         showAlert("Song moved to the playlist successfully!");
     }

@@ -38,6 +38,10 @@ public class Playlist {
         return allSongs;
     }
 
+    public void setAllSongs(ArrayList<Song> songs) {
+        this.allSongs = songs;
+    }
+
     public void removeSong(Song song){
         allSongs.remove(song);
     }
