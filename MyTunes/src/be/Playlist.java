@@ -61,4 +61,11 @@ public class Playlist {
     }
 
 
+    public int getId() {
+        return id;
+    }
+
+    public void setPlaylistName(String playlistName) {
+        this.playlistName = playlistName;
+    }
 }

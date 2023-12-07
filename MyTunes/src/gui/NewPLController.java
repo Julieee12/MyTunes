@@ -1,5 +1,6 @@
 package gui;
 
+import be.Playlist;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -17,9 +18,11 @@ public class NewPLController implements Initializable {
     public Button saveChanges;
     public TextField nameInput;
     private MPController mpController;
-    private MPModel model;
+    private static MPModel model;
     private Stage stage;
 
+    private boolean editModePlaylist = false;
+    private Playlist playlistToEdit;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -37,14 +40,35 @@ public class NewPLController implements Initializable {
 
     public void savePlaylist(ActionEvent event) throws SQLException {
         String playlistName = nameInput.getText();
-        model.createSinglePlaylist(playlistName);
+        if (editModePlaylist && playlistToEdit != null) {
+            // Editing an existing playlist
+            playlistToEdit.setPlaylistName(playlistName);
+            model.updatePlaylist(playlistToEdit);
+        } else {
+            // Creating a new playlist
+            model.createSinglePlaylist(playlistName);
+        }
 
         mpController.updateTable();
 
-        //Close the stage
-       Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-       stage.close();
+        // Close the stage
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.close();
     }
+
+    public void setEditModePlaylist(boolean editMode) {
+        this.editModePlaylist = editMode;
+    }
+
+    public void setPlaylistToEdit(Playlist selectedPlaylist) {
+        this.playlistToEdit = selectedPlaylist;
+
+        // Set the existing playlist details in the UI for editing
+        if (playlistToEdit != null) {
+            nameInput.setText(playlistToEdit.getPlaylistName());
+        }
+    }
+
 
 
 

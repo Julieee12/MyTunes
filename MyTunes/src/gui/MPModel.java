@@ -5,6 +5,7 @@ import be.Playlist;
 import be.Song;
 import bll.PlaylistManager;
 import bll.SongManager;
+import dal.PlaylistDAO;
 import javafx.collections.ObservableList;
 
 import java.sql.SQLException;
@@ -19,7 +20,7 @@ public class MPModel {
 
     public MPModel() {
         this.playerSongLogic = new SongManager();
-        this.playerPlaylistLogic = new PlaylistManager();
+        this.playerPlaylistLogic = new PlaylistManager(new PlaylistDAO());
     }
 
     public static MPModel getInstance(){
@@ -48,6 +49,10 @@ public class MPModel {
 
     public void createSinglePlaylist (String playlistName){
         playerPlaylistLogic.createPlaylist(playlistName);
+    }
+
+    public void updatePlaylist(Playlist playlistToUpdate) throws SQLException {
+        playerPlaylistLogic.updatePlaylist(playlistToUpdate);
     }
 
     public ObservableList<Playlist> returnPlaylist() throws SQLException {

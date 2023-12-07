@@ -10,7 +10,7 @@ import java.util.List;
 public interface IPlaylistDAO {
     public void createPlaylist (Playlist p);
     public Playlist getPlaylist (int id);
-    void updatePlaylist(Playlist oldPlaylist, Playlist newPLaylist) throws SQLException;
+    void updatePlaylist(Playlist newPLaylist) throws SQLException;
     public List<Playlist> getAllPlaylists() throws SQLException;
     public void deletePlaylist(ObservableList<Playlist> songsToDelete) throws SQLException;
 

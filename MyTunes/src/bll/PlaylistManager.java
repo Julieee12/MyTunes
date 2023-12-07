@@ -13,8 +13,11 @@ import java.util.List;
 
 public class PlaylistManager {
     private static ObservableList <Playlist> playlistList = FXCollections.observableArrayList();
-    IPlaylistDAO playlistDAO = new PlaylistDAO();
+    private final IPlaylistDAO playlistDAO;
 
+    public PlaylistManager(IPlaylistDAO playlistDAO) {
+        this.playlistDAO = playlistDAO;
+    }
     public void createPlaylist (String playlistName){ //creates single playlist
         Playlist newPlaylist = new Playlist(playlistName);
         playlistList.add(newPlaylist);
@@ -36,6 +39,10 @@ public class PlaylistManager {
         playlistList.clear();
         playlistList.addAll(playlistDAO.getAllPlaylists());
 
+    }
+
+    public void updatePlaylist(Playlist playlistToUpdate) throws SQLException {
+        playlistDAO.updatePlaylist(playlistToUpdate);
     }
 
 

@@ -70,7 +70,7 @@ public class MPController implements Initializable {
 
     //region @FXML TableView and Columns
     @FXML
-    public TableView <Playlist> playlistTable;
+    public TableView<Playlist> playlistTable;
     @FXML
     public TableColumn <Playlist, String> columnPlaylistName;
     @FXML
@@ -378,7 +378,25 @@ public class MPController implements Initializable {
     public void moveSongsDown(ActionEvent actionEvent) {
     }
 
-    public void editExistingPlaylist(ActionEvent actionEvent) {
+    public void editExistingPlaylist(ActionEvent actionEvent) throws IOException {
+        // Get the selected playlist from the table
+        Playlist selectedPlaylist = playlistTable.getSelectionModel().getSelectedItem();
+
+        if (selectedPlaylist != null) {
+            // Open the EditPlaylist window for editing
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("NewPlaylist.fxml"));
+            Parent root = loader.load();
+
+
+            NewPLController newPLController = loader.getController();
+            newPLController.setMPController(this);
+            newPLController.setEditModePlaylist(true); // Set edit mode to true
+            newPLController.setPlaylistToEdit(selectedPlaylist); // Pass the selected playlist
+
+            Stage primaryStage = new Stage();
+            primaryStage.setScene(new Scene(root));
+            primaryStage.show();
+        }
     }
 
     public void editExistingSong(ActionEvent actionEvent) throws IOException {
@@ -401,6 +419,7 @@ public class MPController implements Initializable {
 
 
         }
+
     }
 
 

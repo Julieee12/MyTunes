@@ -5,35 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9417ade9-2d98-480b-b2b5-2fdc0dbdce5d" name="Changes" comment="Deletion functionality within database.">
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyTunes/src/be/Playlist.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/be/Playlist.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyTunes/src/bll/PlaylistManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/bll/PlaylistManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyTunes/src/bll/SongManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/bll/SongManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyTunes/src/dal/PLaylistDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/dal/PLaylistDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyTunes/src/dal/IPlaylistDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/dal/IPlaylistDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyTunes/src/dal/PLaylistDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/dal/PlaylistDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyTunes/src/gui/MPController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/gui/MPController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyTunes/src/gui/MPModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/gui/MPModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyTunes/src/gui/NewPLController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/gui/NewPLController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/be/Playlist.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/be/Playlist.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/bll/PlaylistManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/bll/PlaylistManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/bll/SongManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/bll/SongManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/dal/IPlaylistDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/dal/IPlaylistDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/dal/PLaylistDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/dal/PLaylistDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/dal/SongDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/dal/SongDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/gui/MPModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/gui/MPModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/be/Playlist.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/bll/PlaylistManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/dal/IPlaylistDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/dal/PLaylistDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/gui/MPController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/gui/MPController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/gui/MPModel.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/gui/NewPLController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/gui/NewPLController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/gui/NewSongController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/gui/NewSongController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/gui/NewSongController.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -77,7 +69,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/andre&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Iulia/Documents/GitHub/MyTunes&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -103,6 +95,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -120,10 +117,10 @@
       <workItem from="1701631443655" duration="399000" />
       <workItem from="1701633286015" duration="2918000" />
       <workItem from="1701684132199" duration="14562000" />
-      <workItem from="1701633286015" duration="1712000" />
-      <workItem from="1701626118785" duration="897000" />
-      <workItem from="1701785325387" duration="4853000" />
-      <workItem from="1701858384648" duration="302000" />
+      <workItem from="1701810963061" duration="733000" />
+      <workItem from="1701853835719" duration="3036000" />
+      <workItem from="1701871813997" duration="3153000" />
+      <workItem from="1701885262039" duration="2687000" />
     </task>
     <task id="LOCAL-00001" summary="Cancel button functionality and addNewPlaylist.">
       <option name="closed" value="true" />
@@ -133,15 +130,7 @@
       <option name="project" value="LOCAL" />
       <updated>1701373056206</updated>
     </task>
-    <task id="LOCAL-00002" summary="Deletion functionality within database.">
-      <option name="closed" value="true" />
-      <created>1701626412232</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1701626412232</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -160,7 +149,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Cancel button functionality and addNewPlaylist." />
-    <MESSAGE value="Deletion functionality within database." />
-    <option name="LAST_COMMIT_MESSAGE" value="Deletion functionality within database." />
+    <option name="LAST_COMMIT_MESSAGE" value="Cancel button functionality and addNewPlaylist." />
   </component>
 </project>
