@@ -103,6 +103,26 @@ public class PlaylistDAO implements IPlaylistDAO{
         }
     }
 
+    @Override
+    public void removeSongsFromPlaylist(Playlist selectedPlaylist, List<Song> songsToDelete) {
+        try (Connection con = dbConnection.getConnection()) {
+            String sql = "DELETE FROM PlaylistsSongs WHERE PlaylistID = ? AND SongID= ?";
+            try (PreparedStatement pt = con.prepareStatement(sql)) {
+                for (Song song : songsToDelete) {
+                    int playlistId = selectedPlaylist.getId();
+                    int songId = song.getId();
+
+                    pt.setInt(1, playlistId);
+                    pt.setInt(2, songId);
+                    pt.addBatch();
+                }
+                pt.executeBatch();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public void addSongToPlaylist(Playlist playlist, Song song) throws SQLException {
         try (Connection con = dbConnection.getConnection()) {
             String sql = "INSERT INTO PlaylistsSongs (PlaylistID, SongID) VALUES (?, ?)";

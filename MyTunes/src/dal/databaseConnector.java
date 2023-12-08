@@ -12,11 +12,11 @@ public class databaseConnector {
 
     public databaseConnector() {
         dataSource = new SQLServerDataSource();
-        dataSource.setServerName("10.176.111.34");
-        dataSource.setDatabaseName("MyTunes-groupE1");
+        dataSource.setServerName("");
+        dataSource.setDatabaseName("");
         dataSource.setPortNumber(1433);
-        dataSource.setUser("CSe2023b_e_18");
-        dataSource.setPassword("CSe2023bE18#23");
+        dataSource.setUser("");
+        dataSource.setPassword("");
         dataSource.setTrustServerCertificate(true);
     }
     public Connection getConnection() throws SQLServerException {

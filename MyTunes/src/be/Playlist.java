@@ -37,6 +37,14 @@ public class Playlist {
     public List<Song> getAllsongs(){
         return allSongs;
     }
+    public Song findSongByTitle(String title) {
+        for (Song song : allSongs) {
+            if (song.getSongTitle().equals(title)) {
+                return song;
+            }
+        }
+        return null;
+    }
 
     public void setAllSongs(ArrayList<Song> songs) {
         this.allSongs = songs;

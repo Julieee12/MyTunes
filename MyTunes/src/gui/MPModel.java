@@ -9,6 +9,7 @@ import dal.PlaylistDAO;
 import javafx.collections.ObservableList;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public class MPModel {
     private final static MPModel instance = new MPModel(); //ensures that by using Singelton all controllers use the same model
@@ -65,6 +66,9 @@ public class MPModel {
     public void addSongToPlaylist(Playlist playlist, Song song) throws SQLException {
         playlist.addSong(song);
         playerPlaylistLogic.addSongToPlaylist(playlist, song);
+    }
+    public void deleteSongsFromPlaylist(Playlist selectedPlaylist, List<Song> songsToDelete) throws SQLException {
+        playerPlaylistLogic.deleteSongsFromPlaylist(selectedPlaylist, songsToDelete);
     }
 
 

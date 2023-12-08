@@ -53,6 +53,13 @@ public class PlaylistManager {
     public void updatePlaylist(Playlist playlistToUpdate) throws SQLException {
         playlistDAO.updatePlaylist(playlistToUpdate);
     }
+    public void deleteSongsFromPlaylist(Playlist selectedPlaylist, List<Song> songsToDelete) throws SQLException {
+
+        playlistDAO.removeSongsFromPlaylist(selectedPlaylist, songsToDelete);
+        for (Song song : songsToDelete) {
+            selectedPlaylist.removeSong(song);
+        }
+    }
 
 
 

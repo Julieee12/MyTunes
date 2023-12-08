@@ -26,6 +26,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.Collections;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -86,6 +87,7 @@ public class MPController implements Initializable {
     private int currentSong;
     private MediaPlayer mediaPlayer;
     public Slider songSlider;
+
 
 
     @Override
@@ -366,8 +368,6 @@ public class MPController implements Initializable {
         }
     }
 
-    public void deleteSongInPlaylist(ActionEvent actionEvent) {}
-
 
 
     public void deleteSongs(ActionEvent actionEvent) throws SQLException {
@@ -442,10 +442,27 @@ public class MPController implements Initializable {
 
 
 
-    public void moveSongsUp(ActionEvent actionEvent) {
+    public void moveSongsUp(ActionEvent actionEvent) throws SQLException {
+        int selectedIndex = songsInPlaylist.getSelectionModel().getSelectedIndex();
+        if (selectedIndex > 0) {
+
+            ObservableList<String> songs = songsInPlaylist.getItems();
+            Collections.swap(songs, selectedIndex, selectedIndex - 1);
+            songsInPlaylist.setItems(songs);
+            songsInPlaylist.getSelectionModel().select(selectedIndex - 1);
+        }
+
     }
 
-    public void moveSongsDown(ActionEvent actionEvent) {
+    public void moveSongsDown(ActionEvent actionEvent) throws SQLException {
+        int selectedIndex = songsInPlaylist.getSelectionModel().getSelectedIndex();
+        if (selectedIndex < songsInPlaylist.getItems().size() - 1) {
+
+            ObservableList<String> songs = songsInPlaylist.getItems();
+            Collections.swap(songs, selectedIndex, selectedIndex + 1);
+            songsInPlaylist.setItems(songs);
+            songsInPlaylist.getSelectionModel().select(selectedIndex + 1);
+        }
     }
 
     public void editExistingPlaylist(ActionEvent actionEvent) throws IOException {
@@ -493,4 +510,31 @@ public class MPController implements Initializable {
     }
 
 
+    public void removeSongFromPlaylist(ActionEvent actionEvent) {
+        Playlist selectedPlaylist = playlistTable.getSelectionModel().getSelectedItem();
+        String selectedSongTitle = (String) songsInPlaylist.getSelectionModel().getSelectedItem();
+
+        if (selectedPlaylist != null && selectedSongTitle != null) {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirmation");
+            alert.setHeaderText("Confirm Deletion");
+            alert.setContentText("Are you sure that you want to remove the selected song from the playlist?");
+            Optional<ButtonType> result = alert.showAndWait();
+
+            if (result.isPresent() && result.get() == ButtonType.OK) {
+                Song selectedSong = selectedPlaylist.findSongByTitle(selectedSongTitle);
+                if (selectedSong != null) {
+                    try {
+                        model.deleteSongsFromPlaylist(selectedPlaylist, Collections.singletonList(selectedSong));
+                        updateSongsInPlaylistTable(selectedPlaylist);
+                        updateTable();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                        showAlert("Error removing song from the playlist.");
+                    }
+            }   }
+        } else {
+            showAlert("Please select a playlist and a song from the playlist to remove.");
+        }
+    }
 }

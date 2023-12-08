@@ -8,12 +8,12 @@ import java.sql.SQLException;
 import java.util.List;
 
 public interface IPlaylistDAO {
-    public void createPlaylist (Playlist p);
-    public Playlist getPlaylist (int id);
+    void createPlaylist (Playlist p);
+    Playlist getPlaylist (int id);
     void updatePlaylist(Playlist newPLaylist) throws SQLException;
-    public List<Playlist> getAllPlaylists() throws SQLException;
-    public void deletePlaylist(ObservableList<Playlist> playlistsToDelete) throws SQLException;
-    public void addSongToPlaylist(Playlist playlist, Song song)throws SQLException;
-    public List<Song> getAllSongsInPlaylist(Playlist playlist)throws SQLException;
-
+    List<Playlist> getAllPlaylists() throws SQLException;
+    void deletePlaylist(ObservableList<Playlist> playlistsToDelete) throws SQLException;
+    void addSongToPlaylist(Playlist playlist, Song song)throws SQLException;
+    List<Song> getAllSongsInPlaylist(Playlist playlist)throws SQLException;
+    void removeSongsFromPlaylist(Playlist selectedPlaylist, List<Song> songsToDelete);
 }
