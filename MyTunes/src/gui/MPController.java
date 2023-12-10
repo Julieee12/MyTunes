@@ -33,6 +33,7 @@ import java.util.ResourceBundle;
 public class MPController implements Initializable {
 
     private MPModel model;
+
     @FXML
     private Button prevsong;
     @FXML
@@ -72,21 +73,26 @@ public class MPController implements Initializable {
 
     //region @FXML TableView and Columns
     @FXML
-    public TableView<Playlist> playlistTable;
+    private TableView<Playlist> playlistTable;
     @FXML
-    public TableColumn <Playlist, String> columnPlaylistName;
+    private TableColumn <Playlist, String> columnPlaylistName;
     @FXML
-    public TableColumn <Playlist, Integer> columnSongCount;
+    private TableColumn <Playlist, Integer> columnSongCount;
    @FXML
-   public TableColumn <Playlist, String> columnTotalTime;
-    public TableView<Song> songTable;
-    public TableColumn<Song, String> titleColumn;
-    public TableColumn<Song, String> artistColumn;
-    public TableColumn<Song, String> categoryColumn;
-    public TableColumn<Song, Double> timeColumn;
+   private TableColumn <Playlist, String> columnTotalTime;
+    @FXML
+    private TableView<Song> songTable;
+    @FXML
+    private TableColumn<Song, String> titleColumn;
+    @FXML
+    private TableColumn<Song, String> artistColumn;
+    @FXML
+    private TableColumn<Song, String> categoryColumn;
+    @FXML
+    private TableColumn<Song, Double> timeColumn;
     private int currentSong;
     private MediaPlayer mediaPlayer;
-    public Slider songSlider;
+    private Slider songSlider;
 
 
 

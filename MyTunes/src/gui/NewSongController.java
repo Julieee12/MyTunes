@@ -2,6 +2,7 @@ package gui;
 
 import be.Song;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -26,15 +27,19 @@ public class NewSongController implements Initializable {
     private MPController mpController;
 
     private Stage stage;
-    public TextField titlefield;
-    public TextField artistfield;
-    public TextField timeField;
-    public TextField fileField;
-    public Button choose;
-    public Button save;
-    public Button cancel;
-    public Button more;
-    public ChoiceBox<String> categoryBox;
+    private TextField titlefield;
+    private TextField artistfield;
+    private TextField timeField;
+    private TextField fileField;
+    @FXML
+    private Button choose;
+    @FXML
+    private Button save;
+    @FXML
+    private Button cancel;
+    @FXML
+    private Button more;
+    private ChoiceBox<String> categoryBox;
     private String[] categories = {"Pop", "Rap", "Jazz", "Rock"};
 
     private boolean editMode = false; // Flag to indicate edit mode

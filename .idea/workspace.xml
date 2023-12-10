@@ -5,19 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9417ade9-2d98-480b-b2b5-2fdc0dbdce5d" name="Changes" comment="Deletion functionality within database.">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyTunes/src/be/Playlist.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/be/Playlist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyTunes/src/bll/PlaylistManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/bll/PlaylistManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyTunes/src/dal/IPlaylistDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/dal/IPlaylistDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyTunes/src/dal/PlaylistDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/dal/PlaylistDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyTunes/src/gui/MPController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/gui/MPController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyTunes/src/gui/MPModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/gui/MPModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyTunes/src/gui/MusicPlayer.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/gui/MusicPlayer.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/be/Playlist.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/be/Playlist.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/bll/PlaylistManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/bll/PlaylistManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/dal/IPlaylistDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/dal/IPlaylistDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/dal/PLaylistDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/dal/PLaylistDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyTunes/src/gui/NewPLController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/gui/NewPLController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyTunes/src/gui/NewSongController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/gui/NewSongController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/gui/MPController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/gui/MPController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/gui/MPModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/gui/MPModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/gui/MusicPlayer.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/gui/MusicPlayer.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/gui/NewPLController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/gui/NewPLController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/gui/NewSongController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/gui/NewSongController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +63,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/andre/Desktop/MyTunes&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/andre/Desktop&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -74,7 +71,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.uml&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -121,6 +118,10 @@
       <workItem from="1701978605438" duration="318000" />
       <workItem from="1701986184034" duration="1465000" />
       <workItem from="1702033580690" duration="8789000" />
+      <workItem from="1702046181033" duration="6000" />
+      <workItem from="1702046210901" duration="741000" />
+      <workItem from="1702208674909" duration="8016000" />
+      <workItem from="1702218686487" duration="9617000" />
     </task>
     <task id="LOCAL-00001" summary="Cancel button functionality and addNewPlaylist.">
       <option name="closed" value="true" />
@@ -150,5 +151,25 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Cancel button functionality and addNewPlaylist." />
     <option name="LAST_COMMIT_MESSAGE" value="Cancel button functionality and addNewPlaylist." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+        <line-breakpoint enabled="true" type="java-field">
+          <url>file://$PROJECT_DIR$/MyTunes/src/gui/NewSongController.java</url>
+          <line>36</line>
+          <properties field="save" class="gui.NewSongController" />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

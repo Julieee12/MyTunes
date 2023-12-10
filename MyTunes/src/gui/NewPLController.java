@@ -2,6 +2,7 @@ package gui;
 
 import be.Playlist;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -14,9 +15,11 @@ import java.util.ResourceBundle;
 
 public class NewPLController implements Initializable {
 
-    public Button cancelChanges;
-    public Button saveChanges;
-    public TextField nameInput;
+    @FXML
+    private Button cancelChanges;
+    @FXML
+    private Button saveChanges;
+    private TextField nameInput;
     private MPController mpController;
     private static MPModel model;
     private Stage stage;

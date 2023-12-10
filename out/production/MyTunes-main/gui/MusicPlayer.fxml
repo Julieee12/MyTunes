@@ -34,7 +34,7 @@
       <Text layoutX="652.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Filter" />
       <Button fx:id="newPlaylist" layoutX="20.0" layoutY="553.0" mnemonicParsing="false" onAction="#addNewPlaylist" text="New" />
       <Button fx:id="deletePlaylistID" layoutX="170.0" layoutY="553.0" mnemonicParsing="false" onAction="#deletePlaylist" text="Delete" />
-      <Button fx:id="deleteSongPlaylistID" layoutX="370.0" layoutY="553.0" mnemonicParsing="false" onAction="#deleteSongInPlaylist" text="Delete" />
+      <Button fx:id="deleteSongPlaylistID" layoutX="370.0" layoutY="553.0" mnemonicParsing="false" onAction="#removeSongFromPlaylist" text="Remove" />
       <Button fx:id="deleteSongsID" layoutX="739.0" layoutY="553.0" mnemonicParsing="false" onAction="#deleteSongs" text="Delete" />
       <Button fx:id="close" layoutX="820.0" layoutY="553.0" mnemonicParsing="false" onAction="#closeApplication" text="Close" />
       <Button fx:id="moveSongs" layoutX="450.0" layoutY="188.0" mnemonicParsing="false" onAction="#moveSongsToPlaylists" text="Move" />
