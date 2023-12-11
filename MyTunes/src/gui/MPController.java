@@ -7,6 +7,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
+import javafx.concurrent.Service;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -92,7 +93,12 @@ public class MPController implements Initializable {
     private TableColumn<Song, Double> timeColumn;
     private int currentSong;
     private MediaPlayer mediaPlayer;
+
+    @FXML
     private Slider songSlider;
+    @FXML
+    private Slider volumeSlider;
+
 
 
 
@@ -119,7 +125,6 @@ public class MPController implements Initializable {
                 System.out.println("Selected Song: " + selectedSong.getSongTitle());
                 setMediaPlayer(selectedSong);
             }
-            //TODO: After edit, a song is selected, why???
         });
 
         //shows songs for the selected playlist
@@ -142,12 +147,12 @@ public class MPController implements Initializable {
         });
 
 
-        //IDEA:
-        /*
-        volumeSlider.getValueProperty().addlisten(
-                mediaPlayer.setVolume(newValue);
-        )
-         */
+        volumeSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
+            System.out.println("Volume changed!");
+            if (mediaPlayer != null) {
+                mediaPlayer.setVolume(newValue.doubleValue() / 100.0); // Volume is between 0.0 and 1.0
+            }
+        });
 
     }
 
