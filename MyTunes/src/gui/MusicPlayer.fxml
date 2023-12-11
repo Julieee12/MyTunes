@@ -10,55 +10,121 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MPController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="667.0" prefWidth="793.0" style="-fx-background-color: royalbluPALETURQUOISEe;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MPController">
    <children>
-      <Button fx:id="prevsong" layoutX="326.0" layoutY="30.0" mnemonicParsing="false" onAction="#playPreviousSong" prefHeight="16.0" prefWidth="42.0" text="Prev" />
-      <Button fx:id="playPause" alignment="CENTER" layoutX="394.0" layoutY="17.0" mnemonicParsing="false" onAction="#playPauseAction" prefHeight="50.0" prefWidth="50.0">
-         <graphic>
-            <ImageView fitHeight="42.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+      <AnchorPane layoutX="-10.0" layoutY="72.0" prefHeight="518.0" prefWidth="362.0">
+         <children>
+            <AnchorPane layoutX="10.0" layoutY="472.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="122.0" prefWidth="143.0" style="-fx-background-color: lightsteelblue; -fx-border-color: grey; -fx-border-width: 3;">
+               <children>
+                  <ImageView fitHeight="35.0" fitWidth="36.0" layoutX="69.0" layoutY="35.0">
+                     <image>
+                        <Image url="@images/volume.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="67.0" layoutY="70.0" text="Volume" />
+                  <Slider fx:id="volumeSlider" layoutX="30.0" layoutY="18.0" orientation="VERTICAL" prefHeight="78.0" prefWidth="14.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="146.0" layoutY="472.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="122.0" prefWidth="659.0" style="-fx-background-color: powderblue; -fx-border-color: grey; -fx-border-width: 4;">
+               <children>
+                  <Button fx:id="playPause" alignment="CENTER" layoutX="269.0" layoutY="67.0" mnemonicParsing="false" onAction="#playPauseAction" prefHeight="35.0" prefWidth="42.0" style="-fx-background-color: transparent;">
+                     <graphic>
+                        <ImageView fitHeight="35.0" fitWidth="75.0">
+                           <image>
+                              <Image url="@images/play.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="prevsong" layoutX="227.0" layoutY="76.0" mnemonicParsing="false" onAction="#playPreviousSong" prefHeight="16.0" prefWidth="42.0" style="-fx-background-color: transparent;">
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="42.0">
+                           <image>
+                              <Image url="@images/prev.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="nextsong" layoutX="341.0" layoutY="76.0" mnemonicParsing="false" onAction="#playNextSong" prefHeight="26.0" prefWidth="36.0" style="-fx-background-color: transparent;">
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="42.0">
+                           <image>
+                              <Image url="@images/prevnext.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Slider fx:id="songSlider" layoutX="53.0" layoutY="54.0" onMousePressed="#handleSliderDragDetected" onMouseReleased="#handleSliderDragDone" prefHeight="14.0" prefWidth="544.0" style="-fx-background-color: transparent;" />
+                  <Label fx:id="currentlyPlayingSong" alignment="CENTER" layoutX="136.0" layoutY="22.0" prefHeight="18.0" prefWidth="357.0" text="...song is Playing" textAlignment="CENTER" />
+                  <Button fx:id="close" layoutX="597.0" layoutY="84.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#closeApplication" prefHeight="35.0" prefWidth="58.0" style="-fx-background-color: lightsteelblue;" text="Close">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="-2.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="546.0" prefWidth="343.0" style="-fx-background-color: aliceblue;">
+         <children>
+            <ImageView fitHeight="42.0" fitWidth="90.0" layoutX="2.0" layoutY="34.0">
                <image>
-                  <Image url="@play.png" />
+                  <Image url="@images/library.png" />
                </image>
             </ImageView>
-         </graphic></Button>
-      <Button fx:id="nextsong" layoutX="475.0" layoutY="30.0" mnemonicParsing="false" onAction="#playNextSong" text="Next" />
-      <Slider fx:id="songSlider" layoutX="209.0" layoutY="112.0" onMousePressed="#handleSliderDragDetected" onMouseReleased="#handleSliderDragDone" prefHeight="14.0" prefWidth="426.0" />
-      <Label layoutX="25.0" layoutY="134.0" prefHeight="26.0" prefWidth="67.0" text="Playlists" />
-      <Label fx:id="currentlyPlayingSong" layoutX="239.0" layoutY="91.0" prefHeight="18.0" prefWidth="357.0" text="...song is Playing" />
-      <Label layoutX="543.0" layoutY="139.0" text="All Songs" />
-      <Button fx:id="newsong" layoutX="543.0" layoutY="553.0" mnemonicParsing="false" onAction="#addNewSong" text="New" />
-      <ListView fx:id="songsInPlaylist" layoutX="251.0" layoutY="168.0" prefHeight="376.0" prefWidth="187.0" />
-      <TextField fx:id="searchInput" layoutX="692.0" layoutY="65.0" prefHeight="25.0" prefWidth="123.0" />
-      <Text layoutX="652.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Filter" />
-      <Button fx:id="newPlaylist" layoutX="20.0" layoutY="553.0" mnemonicParsing="false" onAction="#addNewPlaylist" text="New" />
-      <Button fx:id="deletePlaylistID" layoutX="170.0" layoutY="553.0" mnemonicParsing="false" onAction="#deletePlaylist" text="Delete" />
-      <Button fx:id="deleteSongPlaylistID" layoutX="370.0" layoutY="553.0" mnemonicParsing="false" onAction="#removeSongFromPlaylist" text="Remove" />
-      <Button fx:id="deleteSongsID" layoutX="739.0" layoutY="553.0" mnemonicParsing="false" onAction="#deleteSongs" text="Delete" />
-      <Button fx:id="close" layoutX="820.0" layoutY="553.0" mnemonicParsing="false" onAction="#closeApplication" text="Close" />
-      <Button fx:id="moveSongs" layoutX="450.0" layoutY="188.0" mnemonicParsing="false" onAction="#moveSongsToPlaylists" text="Move" />
-      <Button fx:id="searchbutton" layoutX="828.0" layoutY="66.0" mnemonicParsing="false" onAction="#searchSong" text="Search" />
-      <Button fx:id="moveUp" layoutX="239.0" layoutY="553.0" mnemonicParsing="false" onAction="#moveSongsUp" text="up" />
-      <Button fx:id="moveDown" layoutX="285.0" layoutY="553.0" mnemonicParsing="false" onAction="#moveSongsDown" text="down" />
-      <Label layoutX="240.0" layoutY="139.0" text="Songs in playlist" />
-      <Button fx:id="editPlaylist" layoutX="74.0" layoutY="553.0" mnemonicParsing="false" onAction="#editExistingPlaylist" text="Edit" />
-      <Button fx:id="editSong" layoutX="603.0" layoutY="553.0" mnemonicParsing="false" onAction="#editExistingSong" text="Edit" />
-      <Label text="Label" />
-      <TableView fx:id="songTable" layoutX="524.0" layoutY="168.0" prefHeight="376.0" prefWidth="347.0">
-        <columns>
-          <TableColumn fx:id="titleColumn" prefWidth="107.3333740234375" text="Title" />
-          <TableColumn fx:id="artistColumn" prefWidth="77.99993896484375" text="Artist" />
-            <TableColumn fx:id="categoryColumn" prefWidth="92.0" text="Category" />
-            <TableColumn fx:id="timeColumn" prefWidth="70.0" text="Time" />
-        </columns>
-      </TableView>
-      <TableView fx:id="playlistTable" layoutX="20.0" layoutY="168.0" prefHeight="376.0" prefWidth="216.0">
-        <columns>
-          <TableColumn fx:id="columnPlaylistName" prefWidth="75.0" text="Name" />
-          <TableColumn fx:id="columnSongCount" prefWidth="75.0" text="Songs" />
-            <TableColumn fx:id="columnTotalTime" prefWidth="75.0" text="Time" />
-        </columns>
-      </TableView>
+            <Label layoutX="29.0" layoutY="81.0" text="Library" />
+            <Text layoutX="100.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Filter" />
+            <TextField fx:id="searchInput" layoutX="134.0" layoutY="64.0" prefHeight="25.0" prefWidth="123.0" />
+            <Button fx:id="searchbutton" layoutX="269.0" layoutY="63.0" mnemonicParsing="false" onAction="#searchSong" style="-fx-background-color: lightsteelblue;" text="Search" />
+            <AnchorPane layoutX="342.0" layoutY="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="546.0" prefWidth="197.0" style="-fx-background-color: azure;">
+               <children>
+                  <ListView fx:id="songsInPlaylist" layoutX="-3.0" layoutY="134.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="412.0" prefWidth="198.0" style="-fx-background-color: azure;" />
+                  <Label alignment="CENTER" layoutX="-4.0" layoutY="1.0" prefHeight="42.0" prefWidth="198.0" style="-fx-background-color: powderblue;" text="Songs in selected playlist" textAlignment="CENTER" />
+                  <Button fx:id="moveSongs" layoutX="-5.0" layoutY="519.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#moveSongsToPlaylists" prefHeight="26.0" prefWidth="52.0" style="-fx-background-color: powderblue;" text="Move" />
+                  <Button fx:id="deleteSongPlaylistID" layoutX="40.0" layoutY="519.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#removeSongFromPlaylist" prefHeight="26.0" prefWidth="67.0" style="-fx-background-color: powderblue;" text="Remove" />
+                  <Button fx:id="moveDown" layoutX="138.0" layoutY="519.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#moveSongsDown" prefHeight="26.0" prefWidth="67.0" style="-fx-background-color: powderblue;" text="down" />
+                  <Button fx:id="moveUp" layoutX="96.0" layoutY="519.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#moveSongsUp" prefHeight="26.0" prefWidth="50.0" style="-fx-background-color: powderblue;" text="up" />
+               </children>
+            </AnchorPane>
+            <Button fx:id="newsong" layoutX="-1.0" layoutY="113.0" mnemonicParsing="false" onAction="#addNewSong" prefHeight="26.0" prefWidth="114.0" style="-fx-background-color: skyblue;" text="New song" />
+            <Button fx:id="editSong" layoutX="106.0" layoutY="113.0" mnemonicParsing="false" onAction="#editExistingSong" prefHeight="26.0" prefWidth="123.0" style="-fx-background-color: skyblue;" text="Edit song" />
+            <Button fx:id="deleteSongsID" layoutX="216.0" layoutY="113.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#deleteSongs" prefHeight="26.0" prefWidth="123.0" style="-fx-background-color: skyblue;" text=" Delete song" />
+            <AnchorPane layoutX="536.0" prefHeight="546.0" prefWidth="254.0" style="-fx-background-color: lavender;">
+               <children>
+                  <Button fx:id="deletePlaylistID" layoutX="164.0" layoutY="112.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#deletePlaylist" prefHeight="26.0" prefWidth="90.0" style="-fx-background-color: lightsteelblue;" text="Delete playlist" />
+                  <Button fx:id="editPlaylist" layoutX="76.0" layoutY="112.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#editExistingPlaylist" prefHeight="26.0" prefWidth="90.0" style="-fx-background-color: lightsteelblue;" text=" Edit playlist" />
+                  <Button fx:id="newPlaylist" layoutY="112.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addNewPlaylist" prefHeight="26.0" prefWidth="82.0" style="-fx-background-color: lightsteelblue;" text="New playlist" />
+                  <Label layoutX="125.0" layoutY="47.0" prefHeight="42.0" prefWidth="82.0" text="Playlists">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <TableView fx:id="playlistTable" layoutY="133.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="412.0" prefWidth="256.0" style="-fx-background-color: transparent;">
+                     <columns>
+                        <TableColumn fx:id="columnPlaylistName" prefWidth="90.39996337890625" text="Name" />
+                        <TableColumn fx:id="columnSongCount" prefWidth="78.4000244140625" text="Songs" />
+                        <TableColumn fx:id="columnTotalTime" prefWidth="89.5999755859375" text="Time" />
+                     </columns>
+                  </TableView>
+                  <ImageView fitHeight="67.0" fitWidth="98.0" layoutX="33.0" layoutY="23.0">
+                     <image>
+                        <Image url="@images/playlist.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <TableView fx:id="songTable" layoutY="134.0" prefHeight="412.0" prefWidth="343.0" style="-fx-background-color: transparent;">
+               <columns>
+                  <TableColumn fx:id="titleColumn" prefWidth="107.3333740234375" style="-fx-background-color: transparent;" text="Title" />
+                  <TableColumn fx:id="artistColumn" prefWidth="77.99993896484375" text="Artist" />
+                  <TableColumn fx:id="categoryColumn" prefWidth="92.0" text="Category" />
+                  <TableColumn fx:id="timeColumn" prefWidth="70.0" text="Time" />
+               </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
