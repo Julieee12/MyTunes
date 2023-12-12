@@ -206,7 +206,6 @@ public class MPController implements Initializable {
     private void updateCurrentlyPlayingSong() { //currentlyPlayingSong is a label, displaying what song is playing
         if (mediaPlayer != null) {
             MediaPlayer.Status status = mediaPlayer.getStatus();
-            System.out.println(status);
             String labelText;
 
             if (status == MediaPlayer.Status.PLAYING || status == MediaPlayer.Status.READY) {
@@ -270,7 +269,7 @@ public class MPController implements Initializable {
             Song selectedSong = songTable.getItems().get(currentSong);
             songTable.getSelectionModel().select(selectedSong);
         }
-        //TOOO: Add 'else' to switch to first song
+
     }
 
     public void selectPreviousSong() {
