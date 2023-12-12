@@ -27,9 +27,13 @@ public class NewSongController implements Initializable {
     private MPController mpController;
 
     private Stage stage;
+    @FXML
     private TextField titlefield;
+    @FXML
     private TextField artistfield;
+    @FXML
     private TextField timeField;
+    @FXML
     private TextField fileField;
     @FXML
     private Button choose;
@@ -39,6 +43,7 @@ public class NewSongController implements Initializable {
     private Button cancel;
     @FXML
     private Button more;
+    @FXML
     private ChoiceBox<String> categoryBox;
     private String[] categories = {"Pop", "Rap", "Jazz", "Rock"};
 
@@ -112,7 +117,7 @@ public class NewSongController implements Initializable {
         String time = timeField.getText();
         String path = fileField.getText();
 
-        //lets user type time in String
+        //let user type time in String
         double duration = 0;
         String[] parts = time.split(":");
         if (parts.length == 2) {

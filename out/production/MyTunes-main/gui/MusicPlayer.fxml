@@ -59,7 +59,7 @@
                   </Button>
                   <Slider fx:id="songSlider" layoutX="53.0" layoutY="54.0" onMousePressed="#handleSliderDragDetected" onMouseReleased="#handleSliderDragDone" prefHeight="14.0" prefWidth="544.0" style="-fx-background-color: transparent;" />
                   <Label fx:id="currentlyPlayingSong" alignment="CENTER" layoutX="136.0" layoutY="22.0" prefHeight="18.0" prefWidth="357.0" text="...song is Playing" textAlignment="CENTER" />
-                  <Button fx:id="close" layoutX="586.0" layoutY="89.0" mnemonicParsing="false" onAction="#closeApplication" prefHeight="26.0" prefWidth="58.0" style="-fx-background-color: lightsteelblue;" text="Close">
+                  <Button fx:id="close" layoutX="597.0" layoutY="84.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#closeApplication" prefHeight="35.0" prefWidth="58.0" style="-fx-background-color: lightsteelblue;" text="Close">
                      <font>
                         <Font size="11.0" />
                      </font>

@@ -19,9 +19,12 @@ public class NewPLController implements Initializable {
     private Button cancelChanges;
     @FXML
     private Button saveChanges;
+    @FXML
     private TextField nameInput;
+    @FXML
     private MPController mpController;
     private static MPModel model;
+    @FXML
     private Stage stage;
 
     private boolean editModePlaylist = false;
