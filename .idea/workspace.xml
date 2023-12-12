@@ -6,13 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="9417ade9-2d98-480b-b2b5-2fdc0dbdce5d" name="Changes" comment="Deletion functionality within database.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyTunes/src/dal/databaseConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/dal/databaseConnector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyTunes/src/gui/NewPLController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/gui/NewPLController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyTunes/src/bll/PlaylistManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/bll/PlaylistManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyTunes/src/gui/MPController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/gui/MPController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyTunes/src/gui/MPModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/gui/MPModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyTunes/src/gui/NewSongController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyTunes/src/gui/NewSongController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/gui/MPController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/gui/MPController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/gui/MusicPlayer.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/gui/MusicPlayer.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/gui/NewPLController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/gui/NewPLController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MyTunes-main/gui/NewSongController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MyTunes-main/gui/NewSongController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,7 +117,7 @@
       <workItem from="1702046210901" duration="741000" />
       <workItem from="1702208674909" duration="8016000" />
       <workItem from="1702218686487" duration="9617000" />
-      <workItem from="1702377439116" duration="3250000" />
+      <workItem from="1702377439116" duration="4415000" />
     </task>
     <task id="LOCAL-00001" summary="Cancel button functionality and addNewPlaylist.">
       <option name="closed" value="true" />

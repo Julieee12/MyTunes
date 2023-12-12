@@ -236,7 +236,11 @@ public class MPController implements Initializable {
 
     }
 
-
+    /**
+     * Implements a song search functionality. It filters the song list based on user input (title, artist, category)
+     * and displays the matching results in a TableView. The method uses a FilteredList and a SortedList to achieve
+     * sorted updating of the displayed data.
+     */
     public void searchSong() throws SQLException {
         FilteredList<Song> filteredData = new FilteredList<>(model.returnSongList(), e -> true);
 
@@ -254,13 +258,8 @@ public class MPController implements Initializable {
             });
         });
 
-        // Wrap the FilteredList in a SortedList
         SortedList<Song> sortedData = new SortedList<>(filteredData);
-
-        // Bind the SortedList comparator to the TableView comparator
         sortedData.comparatorProperty().bind(songTable.comparatorProperty());
-
-        // Add sorted (and filtered) data to the table
         songTable.setItems(sortedData);
     }
 
@@ -315,7 +314,10 @@ public class MPController implements Initializable {
         // Enable the slider after dragging is done
         // songSlider.setDisable(false);
     }
-
+    /**
+     * Opens NewSong window
+     * Connects the two controllers
+     */
     public void addNewSong(ActionEvent actionEvent) throws IOException {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("NewSong.fxml"));
@@ -328,7 +330,11 @@ public class MPController implements Initializable {
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
-
+    /**
+     * Updates the TableView with the latest song and playlist data. It retrieves the data from the model,
+     * connects the song data with the song TableView, and sets the items for both songTable and playlistTable.
+     * This method is responsible for keeping the displayed data up-to-date.
+     */
     public void updateTable() throws SQLException {
         ObservableList<Song> data = null;
         ObservableList<Playlist> playlistData = null;
@@ -404,6 +410,11 @@ public class MPController implements Initializable {
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         stage.close();
     }
+
+    /**
+     * Updates the TableView displaying songs in a playlist with the latest data.
+     * It takes a Playlist as a parameter, extracts the song titles, and sets them to the TableView.
+     */
     private void updateSongsInPlaylistTable(Playlist playlist) {
 
         ObservableList<String> songTitles = FXCollections.observableArrayList();
@@ -418,27 +429,19 @@ public class MPController implements Initializable {
     public void moveSongsToPlaylists(ActionEvent actionEvent) throws SQLException {
         // Get the selected song from the main song library table
         Song selectedSong = songTable.getSelectionModel().getSelectedItem();
-
-        // Get the selected playlist from the playlist table
         Playlist selectedPlaylist = playlistTable.getSelectionModel().getSelectedItem();
 
         if (selectedSong == null || selectedPlaylist == null) {
-            //  alert to the user
             showAlert("Please select a song and a playlist to move them.");
             return;
         }
-
-        // Adds the copied song to the selected playlist
-        //selectedPlaylist.addSong(copiedSong);
 
         try {
             model.addSongToPlaylist(selectedPlaylist, selectedSong);
         } catch (Exception e ) {}
 
-        // Updates the songs in the playlist table dynamically
         updateSongsInPlaylistTable(selectedPlaylist);
         updateTable();
-        // Show a success message to the user
         showAlert("Song moved to the playlist successfully!");
     }
 

@@ -11,7 +11,19 @@ import java.util.List;
 public class SongDAO implements ISongDAO {
     private final databaseConnector dbConnection = new databaseConnector();
 
-
+    /**
+     * This class implements the interface for managing songs in a database. It includes methods for creating,
+     * updating, retrieving, editing, and deleting song records. The class utilizes a database connection and
+     * SQL queries to perform these operations.
+     *
+     * Methods:
+     * - createSong(Song s): Inserts a new song record into the database with the provided Song object.
+     * - updateSong(Song oldSong, Song newSong): Updates the information of an existing song in the database.
+     * - getSong(int id): Retrieves a song record from the database based on the provided ID.
+     * - editSong(int id): Placeholder method for editing a song; returns the provided ID.
+     * - getAllSongs(): Retrieves a list of all songs from the database.
+     * - deleteSongs(ObservableList<Song> songsToDelete): Deletes multiple songs from the database based on the provided list.
+     */
     @Override
     public void createSong(Song s) {
         try(Connection con = dbConnection.getConnection()) {

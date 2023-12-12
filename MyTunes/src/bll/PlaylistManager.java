@@ -30,10 +30,8 @@ public class PlaylistManager {
     }
 
     public void deleteSelectedPlaylists(ObservableList<Playlist> playlistsToDelete) throws SQLException {
-        //for (Playlist playlist : playlistsToDelete) {
-            //playlistList.remove(playlist);
             playlistDAO.deletePlaylist(playlistsToDelete);
-        //}
+
     }
 
     public void loadPlaylist() throws SQLException {

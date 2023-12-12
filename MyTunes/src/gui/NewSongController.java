@@ -109,8 +109,12 @@ public class NewSongController implements Initializable {
     }
 
 
-
-    public void saveSong (ActionEvent actionEvent) throws SQLException { //once save is clicked input will be saved also for the song
+    /**
+     * Saves the song information provided by the user. It retrieves input values for title, artist, category,
+     * duration, and file path. If in edit mode, it updates the existing song in the model; otherwise, it creates
+     * a new song. After saving, it notifies the MPController to update the TableView and closes the stage.
+     */
+    public void saveSong (ActionEvent actionEvent) throws SQLException {
         String title = titlefield.getText();
         String artist = artistfield.getText();
         String category = categoryBox.getValue();
@@ -131,11 +135,7 @@ public class NewSongController implements Initializable {
         } else {
             model.createSong(title, artist, category, duration, path);
         }
-
-        // Notify MPController to update TableView
         mpController.updateTable();
-
-        // Close the stage
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         stage.close();
     }

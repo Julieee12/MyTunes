@@ -30,7 +30,7 @@ public class MPModel {
 
     public void createSong(String title, String artist, String category, Double time, String path){
         playerSongLogic.createSong(title, artist, category, time, path);
-        //observerController.initialize(playerLogic.returnSongList());
+
 
 
     }
