@@ -148,7 +148,6 @@ public class MPController implements Initializable {
 
 
         volumeSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
-            System.out.println("Volume changed!");
             if (mediaPlayer != null) {
                 mediaPlayer.setVolume(newValue.doubleValue() / 100.0); // Volume is between 0.0 and 1.0
             }
@@ -157,7 +156,7 @@ public class MPController implements Initializable {
     }
 
 
-
+    //A media player is created when selecting a song from the table and setting it to "ready"
     public void setMediaPlayer(Song song) {
         //If a song was playing, stop it
         if (mediaPlayer != null) {
@@ -175,7 +174,6 @@ public class MPController implements Initializable {
         // Update slider value based on current time
         mediaPlayer.currentTimeProperty().addListener((observable, oldValue, newValue) -> {
             Platform.runLater(() -> {
-                System.out.println(newValue.toMillis() / mediaPlayer.getTotalDuration().toMillis() * 100);
                 songSlider.setValue(newValue.toMillis() / mediaPlayer.getTotalDuration().toMillis() * 100);
             });
         });
@@ -295,8 +293,6 @@ public class MPController implements Initializable {
             if (mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING) {
                 mediaPlayer.pause();
             }
-            // Also stop the slider from updating during drag
-            // songSlider.setDisable(true);
         }
     }
 
@@ -310,8 +306,6 @@ public class MPController implements Initializable {
             mediaPlayer.seek(seekTime);
             mediaPlayer.play();
         }
-        // Enable the slider after dragging is done
-        // songSlider.setDisable(false);
     }
     /**
      * Opens NewSong window
@@ -343,7 +337,7 @@ public class MPController implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        titleColumn.setCellValueFactory(new PropertyValueFactory<Song, String>("songTitle")); //connects song data with song table view
+        titleColumn.setCellValueFactory(new PropertyValueFactory<Song, String>("songTitle"));
         artistColumn.setCellValueFactory(new PropertyValueFactory<Song, String>("artist"));
         categoryColumn.setCellValueFactory(new PropertyValueFactory<Song, String>("category"));
         timeColumn.setCellValueFactory(new PropertyValueFactory<Song, Double>("SongDurationString"));
@@ -522,7 +516,7 @@ public class MPController implements Initializable {
 
     }
 
-
+    
     public void removeSongFromPlaylist(ActionEvent actionEvent) {
         Playlist selectedPlaylist = playlistTable.getSelectionModel().getSelectedItem();
         String selectedSongTitle = (String) songsInPlaylist.getSelectionModel().getSelectedItem();
