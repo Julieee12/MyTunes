@@ -25,6 +25,11 @@ public class PlaylistDAO implements IPlaylistDAO{
         }
     }
 
+    /**
+     * Gets the playlist by its ID.
+     * @param id of the playlist
+     * @return
+     */
     @Override
     public Playlist getPlaylist(int id) {
         try (Connection con = dbConnection.getConnection()) {
@@ -86,6 +91,10 @@ public class PlaylistDAO implements IPlaylistDAO{
         }
     }
 
+    /**
+     * Deletes the playlist by its ID in the database.
+     * @param playlistsToDelete are the playlists the user wants to delete.
+     */
     @Override
     public void deletePlaylist(ObservableList<Playlist> playlistsToDelete) {
         try (Connection con = dbConnection.getConnection()) {
@@ -103,6 +112,11 @@ public class PlaylistDAO implements IPlaylistDAO{
         }
     }
 
+    /**
+     * Removes the song with specific ID from the playlist with specific ID.
+     * @param selectedPlaylist is a playlist from which the song should be deleted.
+     * @param songsToDelete are the songs that are selected to be deleted.
+     */
     @Override
     public void removeSongsFromPlaylist(Playlist selectedPlaylist, List<Song> songsToDelete) {
         try (Connection con = dbConnection.getConnection()) {

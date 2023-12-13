@@ -118,6 +118,12 @@ public class SongDAO implements ISongDAO {
         }
 
     }
+
+    /**
+     * Deletes the song with specific ID from the database.
+     * @param songsToDelete song the user wants to delete.
+     * @throws SQLException
+     */
     @Override
     public void deleteSongs(ObservableList<Song> songsToDelete) throws SQLException {
         try (Connection con = dbConnection.getConnection()) {

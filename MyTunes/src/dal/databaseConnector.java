@@ -13,7 +13,7 @@ public class databaseConnector {
     public databaseConnector() {
         dataSource = new SQLServerDataSource();
         dataSource.setServerName("");
-        dataSource.setDatabaseName("MyTunes-groupE1");
+        dataSource.setDatabaseName("");
         dataSource.setPortNumber(1433);
         dataSource.setUser("");
         dataSource.setPassword("");

@@ -448,27 +448,38 @@ public class MPController implements Initializable {
     }
 
 
-
+    /**
+     *We get the index of the selected song that will represent its order in the list.
+     * Get the selected playlist for updating purposes
+     * Only activate the code if the song is not at the top,as it cant move up anymore.
+     * Swap the selected song with the song above it and for better user experience we highlight(select) the song,
+     * so that user can see what song he moved.
+     *Use updateSongsInPlaylistTable method using selectedPlaylist extracted before as a parameter.
+     */
     public void moveSongsUp(ActionEvent actionEvent) throws SQLException {
         int selectedIndex = songsInPlaylist.getSelectionModel().getSelectedIndex();
+        Playlist selectedPlaylist = playlistTable.getSelectionModel().getSelectedItem();
         if (selectedIndex > 0) {
 
             ObservableList<String> songs = songsInPlaylist.getItems();
             Collections.swap(songs, selectedIndex, selectedIndex - 1);
             songsInPlaylist.setItems(songs);
             songsInPlaylist.getSelectionModel().select(selectedIndex - 1);
+            updateSongsInPlaylistTable(selectedPlaylist);
         }
 
     }
 
     public void moveSongsDown(ActionEvent actionEvent) throws SQLException {
         int selectedIndex = songsInPlaylist.getSelectionModel().getSelectedIndex();
+        Playlist selectedPlaylist = playlistTable.getSelectionModel().getSelectedItem();
         if (selectedIndex < songsInPlaylist.getItems().size() - 1) {
 
             ObservableList<String> songs = songsInPlaylist.getItems();
             Collections.swap(songs, selectedIndex, selectedIndex + 1);
             songsInPlaylist.setItems(songs);
             songsInPlaylist.getSelectionModel().select(selectedIndex + 1);
+            updateSongsInPlaylistTable(selectedPlaylist);
         }
     }
 
@@ -516,7 +527,14 @@ public class MPController implements Initializable {
 
     }
 
-    
+    /**
+     * Gets the title of the selected song in selected playlist
+     * Checks if both song and playlist is selected.If so gets the Alert confirmation diolog.
+     * IF the user clicks OK finds the selected song in the playlist using the title.
+     * The findSongByTitle is implemented in Playlist.java.
+     * If everything goes smoothly and the song exists calls the method from model,deletes song and updates the playlist
+     * For better user experience show the error if any of the parameters are null.
+     */
     public void removeSongFromPlaylist(ActionEvent actionEvent) {
         Playlist selectedPlaylist = playlistTable.getSelectionModel().getSelectedItem();
         String selectedSongTitle = (String) songsInPlaylist.getSelectionModel().getSelectedItem();
@@ -536,7 +554,6 @@ public class MPController implements Initializable {
                         updateSongsInPlaylistTable(selectedPlaylist);
                         updateTable();
                     } catch (SQLException e) {
-                        e.printStackTrace();
                         showAlert("Error removing song from the playlist.");
                     }
             }   }
